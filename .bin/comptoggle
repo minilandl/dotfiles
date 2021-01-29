@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if  pgrep picom &>/dev/null; then
+    	 notify-send "Turning Picom OFF"
+    pkill picom &
+else
+	 notify-send "Turning Picom ON"
+	picom -b --backend xrender &
+fi
+
+exit 0

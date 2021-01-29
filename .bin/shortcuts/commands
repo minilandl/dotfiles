@@ -1,0 +1,19 @@
+# Alias
+alias calculator='bc'
+alias iso='mount-iso'
+alias notes='joplin'
+alias usage='df -h '
+alias h="cd ~/ && ls "
+alias dl="cd ~/Downloads && ls "
+alias D="cd ~/Documents && ls "
+alias m="cd ~/Music && ls "
+alias p="cd ~/Pictures && ls "
+alias v="cd ~/Videos && ls "
+alias bi="cd ~/.bin && ls "
+alias com="cd ~/.bin/commands && ls "
+alias g="cd /mnt/Games/ && ls"
+alias r="cd /mnt/Roms/ && ls"
+alias s='cd /mnt/samssd/ && ls'
+alias mm='cd /mnt/nasmultimedia/ && ls'
+alias nh='cd /mnt/nashome/ && ls' 
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'

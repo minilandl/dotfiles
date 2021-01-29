@@ -1,0 +1,3 @@
+#!/bin/sh
+pidof transmission-daemon >/dev/null || (transmission-daemon && notify-send "Starting transmission daemon..." && sleep 3) 
+transmission-remote 192.168.1.29 -a "$@" && notify-send " Torrent added on hyrule."

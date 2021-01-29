@@ -1,0 +1,8 @@
+#/bin/sh
+#rsync -avP -e "ssh -i /home/jasper/.ssh/jellyfin.rsa" /mnt/Roms/tempmedia/ jasper@192.168.20.5:/mnt/media/
+
+rsync -avP /mnt/Roms/tempmedia/ jasper@192.168.1.192:/mnt/media/
+
+
+rm  -r /mnt/Roms/tempmedia/Movies/*
+rm -r /mnt/Roms/tempmedia/TV\ Shows/*
