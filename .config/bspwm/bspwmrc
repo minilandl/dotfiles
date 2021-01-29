@@ -1,0 +1,98 @@
+#! /bin/sh
+#bspc rule -r "*"
+monmiddle=HDMI-A-0
+monright=DisplayPort-1 
+monleft=DisplayPort-2
+
+xrandr --output $monmiddle --primary --set TearFree on   
+
+#xrandr --output HDMI-1 --primary   
+
+xrandr --output $monright --right-of $monmiddle --set TearFree on 
+
+#xrandr --output DP-2 --right-of HDMI-1
+
+
+xrandr --output $monleft --left-of $monmiddle --set TearFree on 
+
+#xrandr --output DP-3 --left-of HDMI-1
+
+bspc monitor $monleft -d 1 2 3  
+bspc monitor $monmiddle -d 4 5 6  
+bspc monitor $monright -d 7 8 9 10
+
+#bspc monitor $monmiddle -d  1 2 3 4 5 6 7 8 9 
+
+
+borderbase=5
+padding=$borderbase
+monocle_padding=$borderbase
+gaps="8"
+
+bspc config border_width        2.5
+bspc config window_gap          $gaps
+
+
+bspc config border_width=$borderbase
+
+wallpaper=${HOME}/Pictures/wallpapers/wallpaper.jpg
+feh --bg-scale $wallpaper
+
+sxhkd &
+
+source "${HOME}/.cache/wal/colors.sh"
+
+source "$HOME/.config/polybar/launch.sh"
+
+bspc config normal_border_color 	"$color4"
+bspc config active_border_color 	"$color2"
+bspc config focused_border_color 	"$color2"
+bspc config presel_feedback_color	"$color1"
+bspc config split_ratio          	0.5
+bspc config borderless_monocle   	true
+bspc config gapless_monocle       	true
+bspc config pointer_follows_monitor	true 
+bspc config focus_follows_pointer		false 
+bspc config paddingless_monocle			true
+bspc config ignore_ewmh_focus		true
+bspc config single_monocle				false
+
+
+
+
+bspc config top_padding 25
+bspc config bottom_padding 0
+
+xsetroot -cursor_name left_ptr
+
+
+#required services
+bspc rule -a *:*
+bspc rule -a firefox desktop="^6" state=tiled
+bspc rule -a soffice  desktop='^1' state=tiled 
+#bspc rule -a "VirtualBox Manager" desktop='^2' state=tiled 
+bspc rule -a Vmware desktop='^2'
+bspc rule -a Spotify:spotify desktop='^4'state=tiled
+bspc rule -a Steam  desktop='^5' follow=off state=fullscreen
+bspc rule -a URxvt:ncmpcpp desktop="^4" state=tiled
+bspc rule -a URxvt:vis desktop="^4" state=tiled
+bspc rule -a lutris:Lutris deskrop='^5' state=fullscreen
+bspc rule -a emulationstation deskrop='^5' state=fullscreen
+bspc rule -a Kodi desktop='^7' state=fullscreen
+bspc rule -a Gimp desktop='^0' state=tiled
+bspc rule -a origin.exe desktop='^5' state=floating
+bspc rule -a wine:Wine desktop='^5' state=floating
+
+bspc config external_rules_command "$(which ~/.config/bspwm/external_rules)"
+
+if pidof  firefox 
+then echo "all good"
+else
+~/autostart.sh
+fi
+
+picom --experimental-backends &
+
+
+wal -R 
+
