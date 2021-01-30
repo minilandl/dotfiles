@@ -88,7 +88,7 @@ bspc config external_rules_command "$(which ~/.config/bspwm/external_rules)"
 if pidof  firefox 
 then echo "all good"
 else
-~/autostart.sh
+$HOME/.bin/autostart.sh
 fi
 
 picom --experimental-backends &
