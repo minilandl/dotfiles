@@ -1,9 +1,20 @@
-#
+             
+                    |  \      |  \            |  \                    
+  _______  __    __ | $$____  | $$   __   ____| $$  ______    _______ 
+ /       \|  \  /  \| $$    \ | $$  /  \ /      $$ /      \  /       \
+|  $$$$$$$ \$$\/  $$| $$$$$$$\| $$_/  $$|  $$$$$$$|  $$$$$$\|  $$$$$$$
+ \$$    \   >$$  $$ | $$  | $$| $$   $$ | $$  | $$| $$   \$$| $$      
+ _\$$$$$$\ /  $$$$\ | $$  | $$| $$$$$$\ | $$__| $$| $$      | $$_____ 
+|       $$|  $$ \$$\| $$  | $$| $$  \$$\ \$$    $$| $$       \$$     \
+ \$$$$$$$  \$$   \$$ \$$   \$$ \$$   \$$  \$$$$$$$ \$$        \$$$$$$$
+
 # wm independent hotkeys
 #
 # terminal emulator
 super + Return
 	urxvt &
+#Application Specific Launches
+
 # steam
 super + alt +  s 
 	steam
@@ -41,10 +52,10 @@ super + alt + t
 
 #screenshot current windows
 super +  {4,3}
-	{scrot -t 0 -u /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png,sleep 0.1; scrot -t 0  -s /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+	{scrot -t 0 -u -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png,sleep 0.1; scrot -t 0 -s -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
 super + 6 
-	 scrot -t 0  -s /home/jasper/Pictures/screenshots/game/%Y-%m-%d-%T-screenshot.png;
+	 scrot -t 0 -s /home/jasper/Pictures/screenshots/game/%Y-%m-%d-%T-screenshot.png;
 
 #screenshot save
 super + 5 
@@ -65,9 +76,12 @@ super + e
 super + Escape
 	pkill -USR1 -x sxhkd & /home/jasper/.config/bspwm/bspwmrc
 
+#toggle transparency
+super + ctrl + {_,alt + }t
+	{$HOME/.bin/transoff,$HOME/.bin/transon}
+
 #
 #Music controls uses mopidy + ncmpcpp
-#
 
 alt + {u,d,m}
 	amixer {-q set Master 5%+,-q set Master 5%-,set Master toggle}	
@@ -105,11 +119,7 @@ ctrl +  {_,alt + }{1-9,0}
 super + m
 	bspc desktop -l next
 
-#
-
-#
 # focus/swap
-#
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
