@@ -1,0 +1,21 @@
+set $wallpaper /home/jasper/Pictures/wallpapers/wallpaper.jpg
+
+set $background #3b1b22
+set $foreground #ddd2de
+
+set $color0 #3b1b22
+set $color1 #6C5DA4
+set $color2 #4E76C5
+set $color3 #9E6198
+set $color4 #C96F89
+set $color5 #4B92C6
+set $color6 #BC9FB7
+set $color7 #ddd2de
+set $color8 #9a939b
+set $color9 #6C5DA4
+set $color10 #4E76C5
+set $color11 #9E6198
+set $color12 #C96F89
+set $color13 #4B92C6
+set $color14 #BC9FB7
+set $color15 #ddd2de

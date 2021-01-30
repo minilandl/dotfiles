@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/jasper/Pictures/wallpapers/wallpaper.jpg"
+let background = "#3b1b22"
+let foreground = "#ddd2de"
+let cursor     = "#ddd2de"
+
+" Colors
+let color0  = "#3b1b22"
+let color1  = "#6C5DA4"
+let color2  = "#4E76C5"
+let color3  = "#9E6198"
+let color4  = "#C96F89"
+let color5  = "#4B92C6"
+let color6  = "#BC9FB7"
+let color7  = "#ddd2de"
+let color8  = "#9a939b"
+let color9  = "#6C5DA4"
+let color10 = "#4E76C5"
+let color11 = "#9E6198"
+let color12 = "#C96F89"
+let color13 = "#4B92C6"
+let color14 = "#BC9FB7"
+let color15 = "#ddd2de"
