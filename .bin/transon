@@ -1,6 +1,5 @@
 #!/bin/bash
 killall picom
-rm ~/.config/picom/picom.conf
-cp  ~/.config/picom/picomtrans.conf ~/.config/picom/picom.conf
-picom --experimental-backends
+cp  $HOME/.config/picom/picomtrans.conf $HOME/.config/picom/picom.conf
+picom 
 echo transparency enabled 

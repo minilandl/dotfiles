@@ -43,13 +43,12 @@ super + alt + t
 super +  {4,3}
 	{scrot -t 0 -u /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png,sleep 0.1; scrot -t 0  -s /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
-super + 5 
+super + 6 
 	 scrot -t 0  -s /home/jasper/Pictures/screenshots/game/%Y-%m-%d-%T-screenshot.png;
 
 #screenshot save
 super + 5 
-	flameshot gui
-
+	flameshot -gui
 
 # program launcher
 super + @space
@@ -60,9 +59,6 @@ super + w
 # emoji
 super + e
  	rofi -show emoji -theme purple
-# keepas
-super + p 
-	quickeepass --rofiargs '-theme purple' ~/Dropbox/databasemacbook2.kdbx
 
 
 # make sxhkd reload its configuration files:
@@ -70,7 +66,7 @@ super + Escape
 	pkill -USR1 -x sxhkd & /home/jasper/.config/bspwm/bspwmrc
 
 #
-#Music
+#Music controls uses mopidy + ncmpcpp
 #
 
 alt + {u,d,m}
@@ -79,7 +75,7 @@ alt + {u,d,m}
 XF86Audio{Next,Prev,Play,Stop}
 	playerctl {next,previous,play-pause,stop}
 
-alt + {Next,Prev,p,s}
+alt + {Right,Left,p,s}
 	mpc  { --host=127.0.0.1 --port=6100 next,--host=127.0.0.1 --port=6100 prev, --host=127.0.0.1 --port=6100 toggle,--host=127.0.0.1 --port=6100 stop}
 #
 
