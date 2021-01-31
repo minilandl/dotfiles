@@ -16,4 +16,4 @@ Feel free to use and steal bits as you see fit as most of my own setup is taken 
 
 <h2>How I manage my Dotfiles<h2>
   
-<p align="left"> I use the git bare repository method for managing my dotfiles. Here is an article about this method of managing your dotfiles: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/</p>
+<p> align="left"> I use the git bare repository method for managing my dotfiles.Here is an article about this method of managing your dotfiles: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ Thank you to DT for making a video explaining this process </p>
