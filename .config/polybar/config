@@ -23,9 +23,9 @@ background = #3b1b22
 ;foreground = ${xrdb:color7:#222}
 foreground = #C96F89
 ;foreground-alt = #555
-;labelcal = #a54242
+labelcal = #a54242
 ;labelcalback = #6b4f93
-;labelfocussed = #d2aac0
+labelfocussed = #d2aac0
 ;secondary = ${xrdb:color4:#222}
 ;secondary = #e60053
 ;secondary = #d65595 
@@ -86,16 +86,17 @@ inline-mode = true
 enable-click = false
 fuzzy-match = true
 
-ws-icon-0 = 0;
-ws-icon-1 = 1;🂡
-ws-icon-2 = 2;
+ws-icon-0 = 0;
+ws-icon-1 = 1;
+ws-icon-2 = 2;
 ws-icon-3 = 3;
-ws-icon-4 = 4;
+ws-icon-4 = 4;謹
 ws-icon-5 = 5;調 
-ws-icon-6 = 6;  
+ws-icon-6 = 6;
 ws-icon-7 = 7;
-ws-icon-8 = 8;
+ws-icon-8 = 8;  
 ws-icon-9 = 9;
+ws-icon-10 = 10;
 
 format = <label-state> <label-mode>
 
@@ -109,7 +110,7 @@ label-occupied-padding=1
 label-occupied-foreground= #b388ac
 
 label-empty = %icon%  
-label-empty-foreground = ${colors.secondary}
+label-empty-foreground = #9E6198
 label-empty-padding = 1
 
 ; Separator in between workspaces
