@@ -2,8 +2,6 @@
 
 <p align="left"> wallpapers in <code>/wall</code>, scripts in <code>/.bin</code>, and colorshemes in <code>.colors</code> application specific configs in <code>.config</code></p>
 
-dotfiles are used to customize your system. The “dotfiles” name is derived from the configuration files in Unix-like systems that start with a dot. This helps with moving between systems easily and stored as a backup.
-
 Feel free to use and steal bits as you see fit as most of my own setup is taken from bits I've found from other people.
 
 <h2> What I use </h2>
