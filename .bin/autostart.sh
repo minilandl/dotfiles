@@ -5,7 +5,7 @@ firefox &
 
 #Start LibreOffice
 
-soffice &
+#soffice &
 
 
 #Start Dropbox
@@ -13,6 +13,9 @@ soffice &
 urxvt &
 
 urxvt -e htop &
+
+urxvt -e ranger &
+
 
 urxvt -e ncmpcpp -s search_engine &
 
