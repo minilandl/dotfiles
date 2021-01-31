@@ -14,6 +14,6 @@ Feel free to use and steal bits as you see fit as most of my own setup is taken 
   <li>bspwm</li>
 </ul> 
 
-<h2>How I manage my Dotfiles<h2>
+<h2>How I manage my Dotfiles</h2>
   
 <p align="left"> I use the git bare repository method for managing my dotfiles
