@@ -17,19 +17,19 @@
 ;==========================================================
 
 [colors]
-background = ${xrdb:color0:#222}
-;background = #e28576
-background-alt = #444
-foreground = ${xrdb:color7:#222}
-;foreground = #dfdfdf
-foreground-alt = #555
-labelcal = #a54242
-labelcalback = #6b4f93
-labelfocussed = #d2aac0
-secondary = ${xrdb:color4:#222}
+;background = ${xrdb:color0:}
+background = #3b1b22
+;background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #C96F89
+;foreground-alt = #555
+;labelcal = #a54242
+;labelcalback = #6b4f93
+;labelfocussed = #d2aac0
+;secondary = ${xrdb:color4:#222}
 ;secondary = #e60053
 ;secondary = #d65595 
-alert = #bd2c40
+;alert = #bd2c40
 
 [bar/bar1]
 #monitor = ${env:MONITOR:HDMI-1}
