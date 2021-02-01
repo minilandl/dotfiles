@@ -7,7 +7,7 @@ Feel free to use and steal bits as you see fit as most of my own setup is taken 
 <h2> What I use </h2>
 <p> I use bspwm as my window manager with ncmpcpp as my mpd client (that names way too long). Together with mopidy to connect to spotify. ZSH as my shell as well as ranger as my filemanager.</p>
 
-<h2> My Window Manager configs</h1>
+<h2> My Window Managers configs</h1>
 <ul>
   <li>bspwm</li>
 </ul> 
