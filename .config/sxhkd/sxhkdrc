@@ -43,8 +43,12 @@ super + alt + e
 super + alt + m 
 	urxvt -e ncmpcpp
 #pulsemixer
-super + ctrl + m
+super + alt + p
 	urxvt -e pulsemixer
+
+#Discord
+super + alt + d 
+	discord-canary
 
 #editor
 super + alt + t
@@ -65,7 +69,7 @@ super + 5
 super + @space
 	rofi -show drun -theme purple
 
-super + k 
+super + p 
 	keeprofi
 
 # open windows
