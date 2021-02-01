@@ -1,0 +1,14 @@
+{
+	"kb": {
+		"hidden": "Control+h",
+		"custom_action": "Control+Return",
+		"pass_attrs": "Shift+Return"
+	},
+	"icons": {
+		"success": "keepassxc-dark",
+		"fail": "keepassxc-locked"
+	},
+	"default_action": "copy",
+	"remember_pass": true,
+	"dir_format": "/{name}"
+}
