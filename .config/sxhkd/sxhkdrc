@@ -64,6 +64,10 @@ super + 5
 # program launcher
 super + @space
 	rofi -show drun -theme purple
+
+super + k 
+	keeprofi
+
 # open windows
 super + w 
        rofi -show window -theme purple
