@@ -21,5 +21,5 @@ Feel free to use and steal bits as you see fit as most of my own setup is taken 
 <h2>How I manage my dotfiles</h2>
 <p align="left"> I use the git bare repository method for managing my dotfiles  Here is an article about this method of managing your dotfiles: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ thank you to <a href="https://gitlab.com/dwt1/dotfiles/-/tree/master#license">DT</a> for making a video outlining the process</p>
 
-<h2>Licence<h2>
+<h2>Licence</h2>
  <p>my dotfiles are licenced under MIT Licence feel free to read more here. Allows for people to share and use how they want :)</p>
