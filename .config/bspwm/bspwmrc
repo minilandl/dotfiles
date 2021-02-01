@@ -18,8 +18,8 @@ xrandr --output $monleft --left-of $monmiddle --set TearFree on
 #xrandr --output DP-3 --left-of HDMI-1
 
 bspc monitor $monleft -d 1 2 3     
-bspc monitor $monmiddle -d 4 5 6
-bspc monitor $monright -d 7 8 9 10 
+bspc monitor $monmiddle -d 4 5 6 7
+bspc monitor $monright -d 8 9 10 
 
 borderbase=5
 padding=$borderbase
@@ -66,7 +66,7 @@ bspc rule -a firefox desktop="^8" state=tiled
 #bspc rule -a Vmware desktop='^2'
 #bspc rule -a Spotify:spotify desktop='^4'state=tiled
 bspc rule -a Steam  desktop='^5' follow=off state=fullscreen
-bspc rule -a ncmpcpp desktop="^2" follow=off state=floating
+bspc rule -a ncmpcpp desktop="^2" state=tiled
 bspc rule -a vis desktop="^2" state=tiled
 bspc rule -a ranger desktop="^4" state=tiled
 bspc rule -a htop desktop="^4" state=tiled
