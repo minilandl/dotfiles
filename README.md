@@ -6,13 +6,12 @@ Feel free to use and steal bits as you see fit as most of my own setup is taken 
 
 <h2> What I use </h2>
 <ul>
+   <li>OS Arch</li>
   <li>WM BSPWM</li>
   <li>Terminal urxvt</li>
   <li>Shell ZSH</li>
-  <li>Bar Polybar</li>
   <li>File Manager Ranger</li>
   <li>Compositor Picom</li>
-  <li>OS Arch</li>
   <li>Music Mopidy + ncmpcpp</li>
 </ul> 
 <h2> My Window Managers configs</h1>
