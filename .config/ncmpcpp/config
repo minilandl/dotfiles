@@ -270,7 +270,7 @@ mpd_connection_timeout = 5
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-#execute_on_song_change = ""
+execute_on_song_change = notify-send "Now Playing" "$(mpc --host=127.0.0.1 --port=6100 --format '%title% \n%artist% - %album%' current)"
 #
 ##
 ## Note: Custom command that will be executed each time player state
