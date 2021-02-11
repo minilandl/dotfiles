@@ -21,6 +21,10 @@ bspc monitor $monleft -d 1 2 3
 bspc monitor $monmiddle -d 4 5 6 7
 bspc monitor $monright -d 8 9 10 
 
+#bspc monitor $monleft -d 1 2 3 4 5      
+#bspc monitor $monmiddle -d 6 7 8 9 10         
+#bspc monitor $monright -d 8 9 10 
+
 borderbase=5
 padding=$borderbase
 monocle_padding=$borderbase
@@ -52,8 +56,9 @@ bspc config focus_follows_pointer		false
 bspc config paddingless_monocle			true
 bspc config ignore_ewmh_focus		true
 bspc config single_monocle				false
-bspc config top_padding 4
-bspc config bottom_padding 4
+#bspc config top_padding 0
+#bspc config bottom_padding 0
+
 xsetroot -cursor_name left_ptr
 
 #required services
@@ -86,6 +91,8 @@ $HOME/.bin/autostart.sh
 fi
 
 $HOME/.bin/dunststart
+
+$HOME/.bin/lock
 
 notify-send "bspwm started :)"
 
