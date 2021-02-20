@@ -30,7 +30,7 @@ padding=$borderbase
 monocle_padding=$borderbase
 gaps="8"
 
-overide-redirect=true
+#overide-redirect=true
 
 bspc config border_width        2.5
 bspc config window_gap          $gaps
@@ -92,11 +92,8 @@ fi
 
 $HOME/.bin/dunststart
 
-$HOME/.bin/lock
-
 notify-send "bspwm started :)"
 
 picom --experimental-backends &
 
-
-
+#/home/jasper/.bin/lock 

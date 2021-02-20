@@ -18,7 +18,7 @@ super + Return
 # steam
 super + alt +  s 
 	steam
-# firefox
+# firefox-nightly
 super + alt + f
 	firefox
 
