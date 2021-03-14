@@ -55,11 +55,11 @@ super + alt + t
 	urxvt -e nvim
 
 #screenshot current windows
-super +  {4,3}
-	{scrot -t 0 -u -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png,sleep 0.1; scrot -t 0 -s -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+#super +  {4,3}
+#	{scrot -t 0 -u -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png,sleep 0.1; scrot -t 0 -s -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
-super + 6 
-	 scrot -t 0 -s /home/jasper/Pictures/screenshots/game/%Y-%m-%d-%T-screenshot.png;
+#super + 6 
+#	 scrot -t 0 -s /home/jasper/Pictures/screenshots/game/%Y-%m-%d-%T-screenshot.png;
 
 #screenshot save
 super + 5 
@@ -119,7 +119,7 @@ alt + t
 	bspc node --state \~$state
 
 # focus or send to the given desktop
-ctrl +  {_,alt + }{1-9,0}
+mod3  +  {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 
