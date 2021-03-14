@@ -1,19 +1,19 @@
 #! /bin/sh
 bspc rule -r "*"
-monmiddle=HDMI-A-0
-monright=DisplayPort-1 
-monleft=DisplayPort-2
+monmiddle=HDMI-0
+monright=DVI-D-0
+monleft=DP-1
 
-xrandr --output $monmiddle --primary --set TearFree on   
+xrandr --output $monmiddle 
 
 #xrandr --output HDMI-1 --primary   
 
-xrandr --output $monright --right-of $monmiddle --set TearFree on 
+xrandr --output $monright --right-of $monmiddle  
 
 #xrandr --output DP-2 --right-of HDMI-1
 
 
-xrandr --output $monleft --left-of $monmiddle --set TearFree on 
+xrandr --output $monleft --left-of $monmiddle  
 
 #xrandr --output DP-3 --left-of HDMI-1
 
@@ -25,17 +25,17 @@ bspc monitor $monright -d 8 9 10
 #bspc monitor $monmiddle -d 6 7 8 9 10         
 #bspc monitor $monright -d 8 9 10 
 
-borderbase=5
-padding=$borderbase
-monocle_padding=$borderbase
+#borderbase=0
+#padding=$borderbase
+#monocle_padding=$borderbase
 gaps="8"
 
-#overide-redirect=true
+override-redirect=false
 
-bspc config border_width        2.5
+bspc config border_width        2.3
 bspc config window_gap          $gaps
 
-bspc config border_width=$borderbase
+#bspc config border_width=$borderbase
 
 wallpaper=${HOME}/Pictures/wallpapers/wallpaper.jpg
 feh --bg-scale $wallpaper
@@ -56,8 +56,8 @@ bspc config focus_follows_pointer		false
 bspc config paddingless_monocle			true
 bspc config ignore_ewmh_focus		true
 bspc config single_monocle				false
-#bspc config top_padding 0
-#bspc config bottom_padding 0
+bspc config top_padding 0
+bspc config bottom_padding 0
 
 xsetroot -cursor_name left_ptr
 
@@ -79,6 +79,7 @@ bspc rule -a Kodi desktop='^7' state=fullscreen
 bspc rule -a Gimp desktop='^0' state=tiled
 bspc rule -a origin.exe desktop='^5' state=floating
 bspc rule -a wine:Wine desktop='^5' state=floating
+bspc rule -a Origin.exe desktop='^5' state=floating
 
 bspc config external_rules_command "$(which ~/.config/bspwm/external_rules)"
 
@@ -96,4 +97,8 @@ notify-send "bspwm started :)"
 
 picom --experimental-backends &
 
-#/home/jasper/.bin/lock 
+/home/jasper/.bin/lock 
+
+$HOME/.bin/jack.sh
+notify-send "jack running""
+
