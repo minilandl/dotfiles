@@ -1,6 +1,6 @@
 <h1> <code>~/.</code> Welcome to Minilandl's dotfiles</h1>
 
-<p align="left"> wallpapers in <code>/wall</code>, scripts in <code>/.bin</code>, and colorshemes in <code>.colors</code> application specific configs in <code>.config</code></p>
+<p align="left"> wallpapers and screenshots in <code>/wall</code>, scripts in <code>/.bin</code>, and colorshemes in <code>.colors</code> application specific configs in <code>.config</code></p>
 
 Feel free to use and steal bits as you see fit as most of my own setup is taken from bits I've found from other people.
 
