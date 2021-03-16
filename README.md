@@ -14,6 +14,9 @@ Feel free to use and steal bits as you see fit as most of my own setup is taken 
   <li>Compositor Picom</li>
   <li>Music Mopidy + ncmpcpp</li>
 </ul> 
+
+![image](https://user-images.githubusercontent.com/47686364/111281759-41055c80-8678-11eb-8abe-9d351b864680.png)
+
 <h2> My Window Managers configs</h1>
 <ul>
   <li>BSPWM</li>
