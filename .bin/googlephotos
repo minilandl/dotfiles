@@ -1,0 +1,5 @@
+#!/bin/bash
+
+fusermount -u /mnt/googlephotos
+
+rclone mount --vfs-cache-mode writes --allow-non-empty --daemon  Google: /mnt/googlephotos

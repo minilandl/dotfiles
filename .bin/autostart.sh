@@ -32,6 +32,8 @@ dropbox &
 
 onedrivemount.sh & 
 
+googlephotos &
+
 #vmware &
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

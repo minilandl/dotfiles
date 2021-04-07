@@ -1,3 +1,4 @@
 #!/bin/sh
+wineprefix=/mnt/Games/SteamLibrarynative/steamapps/compatdata/wine
 
-sudo rsync -avP /home/jasper/.wine/drive_c/ProgramData/Origin/SelfUpdate/Staged/ /home/jasper/.wine/drive_c/Program\ Files\ \(x86\)/Origin/
+sudo rsync -avP $wineprefix/drive_c/ProgramData/Origin/SelfUpdate/Staged/ $wineprefix/drive_c/Program\ Files\ \(x86\)/Origin/
