@@ -1,8 +1,8 @@
 #! /bin/sh
 bspc rule -r "*"
-monmiddle=HDMI-0
+monmiddle=HDMI-A-0
 monright=DVI-D-0
-monleft=DP-1
+monleft=DisplayPort-0
 
 xrandr --output $monmiddle 
 
@@ -17,12 +17,13 @@ xrandr --output $monleft --left-of $monmiddle
 
 #xrandr --output DP-3 --left-of HDMI-1
 
-bspc monitor $monleft -d 1 2 3     
-bspc monitor $monmiddle -d 4 5 6 7
-bspc monitor $monright -d 8 9 10 
-
-#bspc monitor $monleft -d 1 2 3 4 5      
-#bspc monitor $monmiddle -d 6 7 8 9 10         
+#3 monitor
+#bspc monitor $monleft -d 1 2 3     
+#bspc monitor $monmiddle -d 4 5 6 7
+#bspc monitor $monright -d 8 9 10 
+#2 monitor
+bspc monitor $monleft -d 1 2 3 4       
+bspc monitor $monmiddle -d 5 6 7 8 9 10         
 #bspc monitor $monright -d 8 9 10 
 
 #borderbase=0
@@ -30,12 +31,26 @@ bspc monitor $monright -d 8 9 10
 #monocle_padding=$borderbase
 gaps="8"
 
-override-redirect=false
+borderbase=4
+monocle_padding=-$borderbase
+padding=$borderbase
+bspc config border_width	$borderbase
+bspc config window_gap		11
+#bspc config window_gap		-$borderbase
+
+for side in top right bottom left; do
+		bspc config ${side}_padding $padding
+done
+
+for side in top right bottom left; do
+    bspc config ${side}_monocle_padding $monocle_padding
+done
+
+overide-redirect = true
 
 bspc config border_width        2.3
 bspc config window_gap          $gaps
 
-#bspc config border_width=$borderbase
 
 wallpaper=${HOME}/Pictures/wallpapers/wallpaper.jpg
 feh --bg-scale $wallpaper
@@ -98,7 +113,4 @@ notify-send "bspwm started :)"
 picom --experimental-backends &
 
 /home/jasper/.bin/lock 
-
-$HOME/.bin/jack.sh
-notify-send "jack running""
 
