@@ -4,26 +4,26 @@ monmiddle=HDMI-A-0
 monright=DisplayPort-0
 monleft=DisplayPort-1
 
-xrandr --output $monmiddle 
+xrandr --output $monmiddle --mode 1680x1050 --rate 60.00 
 
 #xrandr --output HDMI-1 --primary   
 
-xrandr --output $monright --right-of $monmiddle  
+xrandr --output $monright --mode 1680x1050 --rate 60.00 --right-of $monmiddle  
 
 #xrandr --output DP-2 --right-of HDMI-1
 
 
-xrandr --output $monleft --left-of $monmiddle  
+xrandr --output $monleft  --mode 1680x1050 --rate 60.00 --left-of $monmiddle  
 
 #xrandr --output DP-3 --left-of HDMI-1
 
 #3 monitor
-bspc monitor $monleft -d 1 2 3     
-bspc monitor $monmiddle -d 4 5 6 7
-bspc monitor $monright -d 8 9 10 
+#bspc monitor $monleft -d 1 2 3     
+#bspc monitor $monmiddle -d 4 5 6 7
+#bspc monitor $monright -d 8 9 10 
 #2 monitor
-#bspc monitor $monleft -d 1 2 3 4       
-#bspc monitor $monmiddle -d 5 6 7 8 9 10         
+bspc monitor $monleft -d 1 2 3 4       
+bspc monitor $monmiddle -d 5 6 7 8 9 10         
 #spc monitor $monright -d 8 9 10 
 #1monitor
 #bspc monitor $monmiddle -d 1 2 3 4 5 6 7 8 9 10         
