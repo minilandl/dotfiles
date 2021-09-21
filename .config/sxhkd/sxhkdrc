@@ -163,5 +163,5 @@ super + r
 	bspc query -N -d | xargs -I % bspc node % -B
 
 #shutdown
-shift +  alt + {s,q,r}
-	systemctl {hybrid-sleep,poweroff,reboot}
+shift +  alt + {s,h,q,r}
+	systemctl {hybrid-sleep,hibernate,poweroff,reboot}
