@@ -1,6 +1,6 @@
 #! /bin/sh
 bspc rule -r "*"
-monmiddle=DisplayPort-2
+monmiddle=DisplayPort-0
 monright=DisplayPort-2
 monleft=DisplayPort-2
 
@@ -86,7 +86,7 @@ bspc rule -a firefox desktop="^8" state=tiled
 #bspc rule -a "VirtualBox Manager" desktop='^2' state=tiled 
 #bspc rule -a Vmware desktop='^2'
 #bspc rule -a Spotify:spotify desktop='^4'state=tiled
-bspc rule -a Steam  desktop='^5' follow=off state=fullscreen
+bspc rule -a Steam  desktop='^5' state=tiled follow=off
 bspc rule -a ncmpcpp desktop="^2" state=tiled
 bspc rule -a vis desktop="^2" state=tiled
 bspc rule -a ranger desktop="^4" state=tiled
@@ -101,7 +101,6 @@ bspc rule -a heroic desktop='^5' state=floating
 bspc rule -a Origin.exe desktop='^5' state=floating
 bspc rule -a Citrix Workspace  state=floating
 bspc rule -a urxvt -e pulsemixer state=floating
-bspc config external_rules_command "$(which ~/.config/bspwm/external_rules)"
 
 $HOME/.config/polybar/launch.sh
 
@@ -116,6 +115,10 @@ $HOME/.bin/dunststart
 notify-send "bspwm started :)"
 
 picom --experimental-backends &
+
+snapclient -s 6 
+
+notify-send"started snapclient"
 
 /home/jasper/.bin/lock 
 
