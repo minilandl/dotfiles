@@ -21,6 +21,9 @@ super + alt +  s
 super + alt + f
 	firefox
 
+# teams
+super + alt +  t 
+	teams -no-sandbox
 #joplin
 super + alt +  n 
 	 urxvt -e joplin
@@ -81,7 +84,7 @@ super + e
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd & /home/jasper/.config/bspwm/bspwmrc
+	pkill jasper -x sxhkd & /home/jasper/.config/bspwm/bspwmrc
 
 #toggle transparency
 super + ctrl + {_,alt + }t
@@ -93,19 +96,19 @@ super + ctrl + {_,alt + }t
 alt + {u,d,m}
 	amixer {-q set Master 5%+,-q set Master 5%-,set Master toggle}	
 
-XF86Audio{Next,Prev,Play,Stop}
-	playerctl {next,previous,play-pause,stop}
+#XF86Audio{Next,Prev,Play,Stop}
+#	playerctl {next,previous,play-pause,stop}
 
-alt + {Right,Left,p,s}
-	mpc  { --host=127.0.0.1 --port=6100 next,--host=127.0.0.1 --port=6100 prev, --host=127.0.0.1 --port=6100 toggle,--host=127.0.0.1 --port=6100 stop}
-#
+alt + {n,b,p,s}
+	mpc {--host=192.168.1.29 --port=7200 next,--host=192.168.1.29 --port=7200 prev,--host=192.168.1.29 --port=7200 toggle,--host=192.168.1.29 --port=7200 stop}
+
 
 #
 # bspwm hotkeys
 #
        
 # close and kill
-super + {c,k}
+super + {c,d}
 	bspc node -{c,k}
 
 #fullscreen window
