@@ -21,13 +21,6 @@ fi
 xrandr --output $monlaptop --mode 1600x900
 
 
-
-
-
-
-
-
-
 #xrandr --output $monmiddle --modeu 3440x1440 --rate 165 --set TearFree on
 
 #xrandr --output HDMI-1 --primary   
@@ -56,7 +49,8 @@ xrandr --output $monlaptop --mode 1600x900
 #borderbase=0
 #padding=$borderbase
 #monocle_padding=$borderbase
-gaps="8"
+gaps="10"
+
 
 borderbase=4
 monocle_padding=-$borderbase
@@ -86,6 +80,8 @@ sxhkd &
 
 source "${HOME}/.Xresources"
 
+xmodmap ${HOME}.Xmodmap
+
 bspc config normal_border_color 	"#C96F89"
 bspc config active_border_color 	"#4E76C5"
 bspc config focused_border_color 	"#4E76C5"
@@ -104,15 +100,14 @@ bspc config automatic_scheme			longest_side
 xsetroot -cursor_name left_ptr
 
 #required services
-bspc rule -a *:*
-bspc rule -a firefox desktop="^8" state=tiled
-#bspc rule -a soffice  desktop='^1' state=tiled 
+bspc rule -a firefox desktop='^8' state=tiled
+bspc rule -a soffice  desktop='^1' state=tiled 
 #bspc rule -a "VirtualBox Manager" desktop='^2' state=tiled 
 #bspc rule -a Vmware desktop='^2'
-#bspc rule -a Spotify:spotify desktop='^4'state=tiled
+#@bspc rule -a Spotify:spotify desktop='^4'state=tiled
 bspc rule -a Steam  desktop='^5' state=tiled follow=off
 bspc rule -a ncmpcpp desktop="^2" state=tiled
-bspc rule -a vis desktop="^2" state=tiled
+spc rule -a vis desktop="^2" state=tiled
 bspc rule -a ranger desktop="^4" state=tiled
 bspc rule -a htop desktop="^4" state=tiled
 bspc rule -a lutris:Lutris deskrop='^5' state=fullscreen
@@ -128,13 +123,6 @@ bspc rule -a urxvt -e pulsemixer state=floating
 
 $HOME/.config/polybar/launch.sh
 
-if pidof  firefox 
-then echo "all good"
-else
-$HOME/.bin/autostart.sh
-fi
-
-$HOME/.bin/dunststart
 
 notify-send "bspwm started :)"
 
@@ -144,5 +132,4 @@ snapclient -s 6
 
 notify-send"started snapclient"
 
-/home/jasper/.bin/lock 
-
+$HOME/.bin/autostart.sh &
