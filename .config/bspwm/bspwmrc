@@ -80,7 +80,7 @@ sxhkd &
 
 source "${HOME}/.Xresources"
 
-xmodmap ${HOME}.Xmodmap
+xmodmap ${HOME}.Xmodmap &
 
 bspc config normal_border_color 	"#C96F89"
 bspc config active_border_color 	"#4E76C5"
@@ -104,7 +104,7 @@ bspc rule -a firefox desktop='^8' state=tiled
 bspc rule -a soffice  desktop='^1' state=tiled 
 #bspc rule -a "VirtualBox Manager" desktop='^2' state=tiled 
 #bspc rule -a Vmware desktop='^2'
-#@bspc rule -a Spotify:spotify desktop='^4'state=tiled
+#bspc rule -a Spotify:spotify desktop='^4'state=tiled
 bspc rule -a Steam  desktop='^5' state=tiled follow=off
 bspc rule -a ncmpcpp desktop="^2" state=tiled
 spc rule -a vis desktop="^2" state=tiled
@@ -126,9 +126,10 @@ $HOME/.config/polybar/launch.sh
 
 notify-send "bspwm started :)"
 
-picom --experimental-backends &
+#picom --experimental-backends &
 
-snapclient -s 6 
+#snapclient -c 6 
+
 
 notify-send"started snapclient"
 
