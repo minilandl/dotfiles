@@ -26,7 +26,7 @@ xrandr --output $monmiddle --mode 3440x1440 --rate 165 --set TearFree on
 #bspc monitor $monmiddle -d 5 6 7 8 9 10         
 #spc monitor $monright -d 8 9 10 
 #1monitor
-bspc monitor $monmiddle -d 1 2 3 4 5 6 7 8 9 10         
+bspc monitor  $monmiddle -d 1 2 3 4 5 6 7 8 9 10         
 
 
 #borderbase=0
@@ -110,15 +110,15 @@ else
 $HOME/.bin/autostart.sh
 fi
 
-$HOME/.bin/dunststart
+#$HOME/.bin/dunststart
 
 notify-send "bspwm started :)"
 
 picom --experimental-backends &
 
-snapclient -s 6 
+#snapclient -s 6 
 
-notify-send"started snapclient"
+#notify-send"started snapclient"
 
-/home/jasper/.bin/lock 
+#/home/jasper/.bin/lock 
 
