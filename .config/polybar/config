@@ -32,7 +32,7 @@ labelfocussed = #d2aac0
 ;alert = #bd2c40
 
 [bar/bar1]
-monitor = ${env:MONITOR:DisplayPort-0}
+monitor = ${env:MONITOR:eDP-1}
 #monitor = ${env:MONITOR:HDMI-A-0}
 width = 100%
 height = 30
@@ -69,8 +69,8 @@ font-0 = "Roboto Mono:style=Italic:size=9;1"
 
 
 modules-left = arch bspwm  
-;modules-center = mpd
-modules-right = mpd cpu pulseaudio eth time date 
+;modules-center = 
+modules-right = spotify cpu pulseaudio eth time date 
 
 
 scroll-up = bspwm-desknext
@@ -145,7 +145,7 @@ label = %time%
 format-foreground = ${colors.secondary} 
 format-prefix-foreground = #7455a6  
 
-[module/eth]
+[module/wlan]
 type = internal/network
 interface = eth0
 interval = 3.0
@@ -203,6 +203,15 @@ content = "   "
 content-foreground = ${colors.secondary}
 content-prefix-foreground=#25b6ed
 click-right = firefox https://aur.archlinux.org/
+
+[module/spotify]   
+type = custom/script
+interval = 1      
+format-prefix = "阮 "
+format = <label>        
+exec = python /home/jasper/.bin/spotify_status.py -t 120 -f '{song} - {artist} ' 
+format-prefix-foreground = #18b83a
+
 
 
 [module/mpd]
