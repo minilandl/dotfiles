@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rclone mount --allow-non-empty --allow-other --vfs-cache-mode writes drive: /mnt/googledrive
