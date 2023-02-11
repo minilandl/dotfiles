@@ -4,7 +4,7 @@ monmiddle=DisplayPort-0
 monright=DisplayPort-2
 monleft=DisplayPort-2
 
-xrandr --output $monmiddle --mode 3440x1440 --rate 165 --set TearFree on
+xrandr --output $monmiddle --mode 3440x1440 --rate 165 
 
 #xrandr --output HDMI-1 --primary   
 
@@ -49,9 +49,9 @@ for side in top right bottom left; do
     bspc config ${side}_monocle_padding $monocle_padding
 done
 
-overide-redirect = true
+#overide-redirect = true
 
-bspc config border_width        2.3
+bspc config border_width        2.0
 bspc config window_gap          $gaps
 
 
