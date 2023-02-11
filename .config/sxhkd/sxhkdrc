@@ -99,8 +99,12 @@ alt + {u,d,m}
 #XF86Audio{Next,Prev,Play,Stop}
 #	playerctl {next,previous,play-pause,stop}
 
+#alt + {n,b,p,s}
+#	mpc {--host=192.168.1.29 --port=7200 next,--host=192.168.1.29 --port=7200 prev,--host=192.168.1.29 --port=7200 toggle,--host=192.168.1.29 --port=7200 stop}
+
 alt + {n,b,p,s}
-	mpc {--host=192.168.1.29 --port=7200 next,--host=192.168.1.29 --port=7200 prev,--host=192.168.1.29 --port=7200 toggle,--host=192.168.1.29 --port=7200 stop}
+	playerctl --player=spotify {next,previous,play-pause,stop}
+
 
 
 #
