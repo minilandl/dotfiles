@@ -1,0 +1,34 @@
+
+#include ".colors/purepink"
+
+! URxvt
+Rxvt*loginShell: true
+URxvt.borderless: true
+URxvt*dynamicColors: on
+URxvt.print-pipe: "cat > /dev/null"
+URxvt.letterSpace: 1.25
+URxvt.font xfnt:"Iosevka:thin :size=14"
+URxvt.scrollBar: false
+URxvt.clipboard.autocopy: true
+URxvt.perl-ext-common:  ...,clipboard,...
+
+! Colors  
+*background:   bg  
+*foreground:   fg  
+
+*color0:      blk  
+*color8:      bblk  
+*color1:      red  
+*color9:      bred  
+*color2:      grn  
+*color10:     bgrn  
+*color3:      ylw  
+*color11:     bylw  
+*color4:      blu  
+*color12:     bblu  
+*color5:      mag  
+*color13:     bmag  
+*color6:      cyn  
+*color14:     bcyn  
+*color7:      wht  
+*color15:     bwht  
