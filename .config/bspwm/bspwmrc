@@ -1,31 +1,32 @@
 #! /bin/sh
 bspc rule -r "*"
 
-monlaptop=eDP-1
-monexternal=HDMI-1
+monlaptop=eDP1
+monexternal=HDMI1
 monmiddle=DisplayPort-0
 monright=DisplayPort-2
 monleft=DisplayPort-2
 
 
-
-
-
-if xrandr -q | grep 'HDMI-1 connected'; then
+if xrandr -q | grep 'HDMI1 connected'; then
 xrandr --output $monexternal --mode 1920x1080 --right-of $monlaptop
 bspc monitor $monlaptop -d 1 2 3 4 5
 bspc monitor $monexternal -d 6 7 8 9 10
 else
 bspc monitor $monlaptop -d 1 2 3 4 5 6 7 8 9 10
+xrandr --output $monlaptop --mode 1600x900 
 fi
-xrandr --output $monlaptop --mode 1600x900 --set "TearFree" on
+#bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
+
+
+#xrandr --output $monlaptop --mode 1600x900 --set "TearFree" on
 
 
 #xrandr --output $monmiddle --modeu 3440x1440 --rate 165 --set TearFree on
 
 #xrandr --output HDMI-1 --primary   
 
-#xrandr --output $monright --mode 1920x1080 --rate 60.00 --right-of $monmiddle  
+#xrandr --output $monright --#mode 1920x1080 --rate 60.00 --right-of $monmiddle  
 
 #xrandr --output DP-2 --right-of HDMI-1
 
@@ -49,7 +50,7 @@ xrandr --output $monlaptop --mode 1600x900 --set "TearFree" on
 #borderbase=0
 #padding=$borderbase
 #monocle_padding=$borderbase
-gaps="10"
+gaps="8"
 
 
 borderbase=4
@@ -129,6 +130,10 @@ notify-send "bspwm started :)"
 #picom --experimental-backends &
 
 #snapclient -c 6 
+
+#enable bluetooth
+
+sudo echo "enable" > /proc/acpi/ibm/bluetooth
 
 
 notify-send"started snapclient"
