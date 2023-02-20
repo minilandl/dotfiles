@@ -17,22 +17,33 @@ urxvt -e htop &
 urxvt -e ranger &
 
 
-urxvt -e ncmpcpp -s search_engine &
+spotify &
+
+mountdrive &
+
+mountdrivepers &
+
+#urxvt -e ncmpcpp -s search_engine &
 
 
-urxvt -e ncmpcpp -s playlist &
+#urxvt -e ncmpcpp -s playlist &
 
 
-urxvt -e ncmpcpp -s browser &
+#urxvt -e ncmpcpp -s browser &
 
+xmodmap $HOME/.Xmodmap
+
+snapclient -c 6
 
 urxvt -e vis &
 
 dropbox &
 
-onedrivemount.sh & 
+#onedrivemount.sh & 
 
-googlephotos &
+mountdrive & 
+
+mountdrivepers & 
 
 #vmware &
 
@@ -41,7 +52,6 @@ googlephotos &
 #VirtualBox &
 
 #spotify &
-
 
 steam-runtime &
 
