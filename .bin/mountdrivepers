@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rclone mount --allow-non-empty --allow-other --vfs-cache-mode full drive: /mnt/googledrivenonshared  
+
