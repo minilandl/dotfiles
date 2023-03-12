@@ -49,7 +49,9 @@ def autostart():
 
 
 
-mod = "mod4"
+mod = "mod4"#Super
+mod1 = "mod1"#Alt
+
 terminal = guess_terminal()
 
 keys = [
@@ -74,7 +76,12 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "c", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod], 'escape', lazy.spawn('rofi')),
+    Key([mod], 'space', lazy.spawn('rofi -show drun -theme purple ')),
+    Key([mod], 'w', lazy.spawn('rofi -show window -theme purple ')),
+    Key([mod], 'e', lazy.spawn('rofi -show emoji -theme purple ')),
+    Key([mod1], 'n', lazy.spawn('playerctl -p spotify next')),
+    Key([mod1], 'b', lazy.spawn('playerctl -p spotify previous')),
+    Key([mod1], 'p', lazy.spawn('playerctl -p spotify play-pause')),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -93,9 +100,14 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-]
+    Key([mod1], "u", lazy.spawn('amixer sset Master 5%+ unmute')),
+    Key([mod1], "d", lazy.spawn('amixer sset Master 5%- unmute')),
+    Key([mod, "mod1"], 'f', lazy.spawn('firefox')),
+    Key([mod, "mod1"], 's', lazy.spawn('steam')),
 
-groups = [Group(i) for i in "123456789"]
+    ]
+
+groups = [Group(i) for i in "12345678910"]
 
 for i in groups:
     keys.extend(
@@ -111,7 +123,7 @@ for i in groups:
             Key(
                 [mod, "shift"],
                 i.name,
-                lazy.window.togroup(i.name, switch_group=True),
+                lazy.window.togroup(i.name, switch_group=False),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
             # Or, use below if you prefer not to switch to that group.
@@ -146,31 +158,11 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
-            ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+     wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
+        wallpaper_mode='fill',
+
+
         ),
-    ),
 ]
 
 # Drag floating layouts.
