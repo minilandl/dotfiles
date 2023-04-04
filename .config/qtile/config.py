@@ -24,29 +24,28 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# -*- coding: utf-8 -*-
 import os
-import random 
-import subprocess 
-from typing import List   
-from libqtile import layout, bar, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
-from libqtile.lazy import lazy 
-from libqtile.utils import guess_terminal
+import re
+import socket
+import subprocess
 from libqtile import qtile
-from libqtile import hook
-from libqtile.backend.wayland import InputConfig
+from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen
+from libqtile.command import lazy
+from libqtile import layout, bar, widget, hook
+from libqtile.lazy import lazy
+from libqtile.utils import guess_terminal
+from typing import List  # noqa: F401
+
+from qtile_extras import widget
+from qtile_extras.widget.decorations import BorderDecoration
 
 
 
-@hook.subscribe.startup
+@hook.subscribe.startup_once
 def autostart():
     dunst = os.path.expanduser('~/.bin/autostart.sh')
     subprocess.call([dunst])
-
-
-
-
-
 
 
 mod = "mod4"#Super
@@ -82,7 +81,8 @@ keys = [
     Key([mod1], 'n', lazy.spawn('playerctl -p spotify next')),
     Key([mod1], 'b', lazy.spawn('playerctl -p spotify previous')),
     Key([mod1], 'p', lazy.spawn('playerctl -p spotify play-pause')),
-
+    Key([mod], 'f', lazy.window.toggle_fullscreen()),
+    
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -104,18 +104,30 @@ keys = [
     Key([mod1], "d", lazy.spawn('amixer sset Master 5%- unmute')),
     Key([mod, "mod1"], 'f', lazy.spawn('firefox')),
     Key([mod, "mod1"], 's', lazy.spawn('steam')),
-
     ]
 
 groups = [Group(i) for i in "12345678910"]
+
+
+groups = [Group("1", layout='monadthreecol'),
+          Group("2", layout='monadthreecol'),
+          Group("3", layout='monadthreecol'),
+          Group("4", layout='monadthreecol'),
+          Group("5", layout='floating'),
+          Group("6", layout='monadthreecol'),
+          Group("7", layout='monadthreecol'),
+          Group("8", layout='Columns'),
+          Group("9", layout='monadthreecol'),
+          Group("10", layout='monadthreecol')]
+
+
+
 
 for i in groups:
     keys.extend(
         [
             # mod1 + letter of group = switch to group
-            Key(
-                [mod],
-                i.name,
+            Key( [mod], i.name,
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
             ),
@@ -133,26 +145,41 @@ for i in groups:
         ]
     )
 
+
+layout_theme = {"border_width": 5,
+                "margin": 8,
+                "border_focus": "0D8CA8",
+                "border_normal": "bbcfd8",
+                }
+
+
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),layout.MonadThreeCol(),
+    layout.Columns(**layout_theme),
+    layout.Max(**layout_theme),
+    layout.MonadThreeCol(**layout_theme),
+    layout.Bsp(**layout_theme),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    # layout.Bsp(**layout_theme),
+    # layout.Matrix(**layout_theme),
+    # layout.MonadTall(**layout_theme),
+    # layout.MonadWide(**layout_theme),
+    # layout.RatioTile(**layout_theme),
+    # layout.Tile(**layout_theme),
+    # layout.TreeTab(**layout_theme),
+    # layout.VerticalTile(**layout_theme),
+    # layout.Zoomy(**layout_theme),
 ]
+
+
+
+
+
 
 widget_defaults = dict(
     font="sans",
     fontsize=12,
-    padding=3,
+    padding=10,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -160,39 +187,34 @@ screens = [
     Screen(
      wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
         wallpaper_mode='fill',
-
-
         ),
-]
+     
+    Screen(
+        top=bar.Bar(
+            [
+                widget.CurrentLayout(),
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                #widget.TextBox("default config", name="default"),
+                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+                widget.Net(interface="eno1"),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                #widget.QuickExit(),
+               #widget.StatusNotifier(),
 
-# Drag floating layouts.
-mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
-]
-
-dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
-floating_layout = layout.Floating(
-    float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
+            ],
+            24,
+        ),
+      ),
     ]
-)
-auto_fullscreen = True
-focus_on_window_activation = "smart"
-reconfigure_screens = True
-
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
