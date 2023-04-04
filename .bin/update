@@ -1,3 +1,5 @@
 #!/bin/sh
 paru
 paru -Sc
+echo "removing files in ~/.cache/paru"
+sudo rm -rf ~/.cache/paru/*
