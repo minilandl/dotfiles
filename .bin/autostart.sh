@@ -14,19 +14,6 @@ urxvt &
 
 urxvt -e htop &
 
-urxvt -e ranger &
-
-
-urxvt -e ncmpcpp -s search_engine &
-
-
-urxvt -e ncmpcpp -s playlist &
-
-
-urxvt -e ncmpcpp -s browser &
-
-
-urxvt -e vis &
 
 dropbox &
 
@@ -42,6 +29,10 @@ googlephotos &
 
 #spotify &
 
+#waybar &
+
+
+dunst & 
 
 steam-runtime &
 
