@@ -2,21 +2,25 @@
 bspc rule -r "*"
 
 monlaptop=eDP1
-monexternal=HDMI1
+monexternal=DP2
 monmiddle=DisplayPort-0
 monright=DisplayPort-2
 monleft=DisplayPort-2
 
 
-if xrandr -q | grep 'HDMI1 connected'; then
-xrandr --output $monexternal --mode 1920x1080 --right-of $monlaptop
-bspc monitor $monlaptop -d 1 2 3 4 5
-bspc monitor $monexternal -d 6 7 8 9 10
-else
-bspc monitor $monlaptop -d 1 2 3 4 5 6 7 8 9 10
-xrandr --output $monlaptop --mode 1600x900 
-fi
-#bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
+#if xrandr -q | grep 'HDMI1 connected'; then
+#xrandr --output $monexternal --mode 1920x1080 --right-of $monlaptop
+#bspc monitor $monlaptop -d 1 2 3 4 5
+#bspc monitor $monexternal -d 6 7 8 9 10
+#else
+#bspc monitor $monlaptop -d 1 2 3 4 5 6 7 8 9 0
+#xrandr --output $monlaptop --mode 1920x1080
+#fi
+
+
+
+
+bspc monitor $monlaptop  -d 1 2 3 4 5 6 7 8 9 0
 
 
 #xrandr --output $monlaptop --mode 1600x900 --set "TearFree" on
