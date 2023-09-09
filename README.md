@@ -20,7 +20,8 @@
   <li><a href="https://github.com/minilandl/dotfiles/blob/master/.config/bspwm/README.md">BSPWM</a></li>
 </ul> 
 My Homelab Diagram can be Found here 
-![image](https://user-images.githubusercontent.com/7686364/610c5188-6d62-438c-84f2-1f6a1e476be1)
+![image](https://github.com/minilandl/dotfiles/assets/47686364/4e5dbdd0-7286-426a-b22a-ccf2a52a22c2)
+
 
 <h2>How I manage my dotfiles</h2>
 <p align="left"> I use the git bare repository method for managing my dotfiles  Here is an article about this method of managing your dotfiles: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ thank you to <a href="https://gitlab.com/dwt1/dotfiles/-/tree/master#license">DT</a> for making a video outlining the process</p>
