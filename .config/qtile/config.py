@@ -30,15 +30,26 @@ import re
 import socket
 import subprocess
 from libqtile import qtile
-from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen 
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from typing import List  # noqa: F401
-
+from spotify import Spotify
 from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
+
+
+
+from libqtile import qtile
+
+if qtile.core.name == "x11":
+    term = "urxvt"
+elif qtile.core.name == "wayland":
+    term = "foot"
+
+
 
 
 
@@ -82,7 +93,7 @@ keys = [
     Key([mod1], 'b', lazy.spawn('playerctl -p spotify previous')),
     Key([mod1], 'p', lazy.spawn('playerctl -p spotify play-pause')),
     Key([mod], 'f', lazy.window.toggle_fullscreen()),
-    
+    Key([mod1], '3', lazy.spawn('scrot -t 1 -s -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png')),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -106,19 +117,19 @@ keys = [
     Key([mod, "mod1"], 's', lazy.spawn('steam')),
     ]
 
-groups = [Group(i) for i in "12345678910"]
+groups = [Group(i) for i in "1234567890"]
 
 
 groups = [Group("1", layout='monadthreecol'),
           Group("2", layout='monadthreecol'),
           Group("3", layout='monadthreecol'),
           Group("4", layout='monadthreecol'),
-          Group("5", layout='floating'),
+          Group("5", layout='monadthreecol'),
           Group("6", layout='monadthreecol'),
           Group("7", layout='monadthreecol'),
           Group("8", layout='Columns'),
           Group("9", layout='monadthreecol'),
-          Group("10", layout='monadthreecol')]
+          Group("0", layout='monadthreecol')]
 
 
 
@@ -172,52 +183,64 @@ layouts = [
 ]
 
 
-
-
-
+colors = [["#282c34", "#282c34"],
+          ["#1c1f24", "#1c1f24"],
+          ["#dfdfdf", "#dfdfdf"],
+          ["#ff6c6b", "#ff6c6b"],
+          ["#98be65", "#98be65"],
+          ["#da8548", "#da8548"],
+          ["#51afef", "#51afef"],
+          ["#c678dd", "#c678dd"],
+          ["#46d9ff", "#46d9ff"],
+          ["#a9a1e1", "#a9a1e1"]]
 
 widget_defaults = dict(
-    font="sans",
+    font="TerminusTTF Nerd Font",
     fontsize=12,
-    padding=10,
+    padding=15,
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(
-     wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
-        wallpaper_mode='fill',
-        ),
-     
-    Screen(
+#screens = [
+#    Screen(
+#     wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
+#        wallpaper_mode='fill',
+#        ), 
+screens = [   
+   Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                #widget.TextBox("default config", name="default"),
-                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                widget.Net(interface="eno1"),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                #widget.QuickExit(),
-               #widget.StatusNotifier(),
-
+                widget.GroupBox(
+                    fmt=' {} ', 
+                    background=colors[1], 
+                    this_current_screen_border=colors[0], 
+                    this_screen_border=colors[0], 
+                    inactive=colors[0]
+                    ),
+                Spotify(), 
+                widget.WindowName(format=' {state}{name} '),
+                #widget.Bluetooth(hci='/dev_41_42_30_00_18_CD', fmt=' Bluetooth: {} ', background=colors[6]),
+                #widget.KeyboardLayout(fmt=' Keyboard: {} ', background=colors[1], configured_keyboards=['us', 'es']),
+				#widget.Battery(charge_char='+', discharge_char='-', full_char='', show_short_text=False, format=' Power: {char}{percent:2.0%} ', background=colors[6], notify_below=10),
+				widget.Volume(background=colors[1], fmt=' Volume: {} '),
+                widget.CPU( format=' CPU: {freq_current}GHz {load_percent}% '),
+                widget.Memory(background=colors[1], fmt=' RAM: {} '),
+                #widget.Wlan(interface='wlan0', background=colors[6], disconnected_message=' Disconnected ', format=' Network: {essid} '),
+                widget.Clock(format=' %A, %B %d %I:%M %p ', background=colors[1]),
             ],
-            24,
+            20,
+			background=colors[0],
+        ),    
+     
+        wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
+        wallpaper_mode='fill',
+      
+
         ),
-      ),
     ]
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
-auto_minimize = True
+#auto_minimize = False
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
