@@ -19,8 +19,9 @@
 <ul>
   <li><a href="https://github.com/minilandl/dotfiles/blob/master/.config/bspwm/README.md">BSPWM</a></li>
 </ul> 
-My Homelab Diagram can be Found here 
-![Homelab Diagram Actuak (2)](https://github.com/minilandl/dotfiles/assets/47686364/0db524cf-f4df-44ef-a139-386a651d29ea)
+
+
+![Homelab Diagram Actuak (2)](https://github.com/minilandl/dotfiles/assets/47686364/b5af78a5-1e9e-4e1d-87c0-dd3f42e430ca)
 
 
 <h2>How I manage my dotfiles</h2>
