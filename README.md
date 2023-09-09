@@ -29,5 +29,6 @@
 Homelab Diagram can be Found here 
 
 <h1> Diagram of My Homelab</h1>
-![image](https://github.com/minilandl/dotfiles/assets/47686364/1e72dbc3-b4ad-4cb7-93a5-c3b9a3e55f3a)
+
+![Homelab Diagram Actuak (2)](https://github.com/minilandl/dotfiles/assets/47686364/87b56bbf-c3a5-43db-b2c5-4cde8283bd71)
 
