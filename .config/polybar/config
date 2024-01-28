@@ -18,10 +18,10 @@
 
 [colors]
 ;background = ${xrdb:color0:}
-background = #3b1b22
+background = #000000
 ;background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #C96F89
+foreground = #3db4da
 ;foreground-alt = #555
 labelcal = #a54242
 ;labelcalback = #6b4f93
@@ -32,7 +32,7 @@ labelfocussed = #d2aac0
 ;alert = #bd2c40
 
 [bar/bar1]
-monitor = ${env:MONITOR:DisplayPort-0}
+monitor = ${env:MONITOR:DisplayPort-1}
 #monitor = ${env:MONITOR:HDMI-A-0}
 width = 100%
 height = 30
@@ -41,7 +41,7 @@ height = 30
 ;radius = 7.0
 fixed-center = true
 spacing = 1
-wm-restack = bspwm
+#wm-restack = bspwm
 
 #overide-redirect = true
 
@@ -68,7 +68,7 @@ font-1 = "InconsolataGo Nerd Font:size=13;2"
 font-0 = "Roboto Mono:style=Italic:size=9;1"
 
 
-modules-left = arch bspwm  
+modules-left = arch ewmh  
 ;modules-center = mpd
 modules-right = mpd cpu pulseaudio eth time date 
 
@@ -79,6 +79,57 @@ scroll-down = bspwm-deskprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+
+
+[module/ewmh] 
+type = internal/xworkspaces
+ 
+; Only show workspaces defined on the same output as the bar 
+; 
+; Useful if you want to show monitor specific workspaces on different bars 
+; 
+; Default: false 
+pin-workspaces = true 
+;Groups workspaces by monitor. If set to false, workspaces are not grouped and 
+; appear in the order provided by the WM 
+; If set to false, cannot be used together with label-monitor 
+; New in version 3.7.0 
+; Default: true
+ 
+group-by-monitor = false 
+
+; Create click handler used to focus desktop 
+; Default: true 
+enable-click = false
+ 
+; Create scroll handlers used to cycle desktops 
+;Default: true 
+enable-scroll = false 
+
+; Reverse the scroll direction 
+; Default: false 
+; New in version 3.6.0 
+
+
+
+ws-icon-0 = 0󰡗;
+ws-icon-1 = 1󰠴;
+ws-icon-2 = 2;
+ws-icon-3 = 3;
+ws-icon-4 = 4;
+ws-icon-5 = 5; 
+ws-icon-6 = 6;
+ws-icon-7 = 7;
+ws-icon-8 = 8;  
+ws-icon-9 = 9;
+ws-icon-10= 10;
+
+
+
+
+reverse-scroll = true
+;icon-default = 󰜀
 
 
 [module/bspwm]
@@ -197,7 +248,7 @@ label-foreground = ${colors.secondary}
 
 [module/arch]
 type = custom/text
-;content-prefix ="  " 
+;content-prefix ="󰠾  " 
 content = "   "  
 ;content-prefix-padding= 1
 content-foreground = ${colors.secondary}

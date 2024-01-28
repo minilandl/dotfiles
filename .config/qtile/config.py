@@ -42,16 +42,6 @@ from qtile_extras.widget.decorations import BorderDecoration
 
 
 
-from libqtile import qtile
-
-if qtile.core.name == "x11":
-    term = "urxvt"
-elif qtile.core.name == "wayland":
-    term = "foot"
-
-
-
-
 
 @hook.subscribe.startup_once
 def autostart():
@@ -108,13 +98,15 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "control"], "r", lazy.reload_config(), lazy.spawn("~/.config/polybar/launch.sh")),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod1], "u", lazy.spawn('amixer sset Master 5%+ unmute')),
     Key([mod1], "d", lazy.spawn('amixer sset Master 5%- unmute')),
     Key([mod, "mod1"], 'f', lazy.spawn('firefox')),
     Key([mod, "mod1"], 's', lazy.spawn('steam')),
+    Key([mod], 't', lazy.spawn('/home/jasper/.bin/transon')),
+    Key([mod, "mod1"], 't', lazy.spawn('/home/jasper/.bin/transoff')),
     ]
 
 groups = [Group(i) for i in "1234567890"]
@@ -194,6 +186,18 @@ colors = [["#282c34", "#282c34"],
           ["#46d9ff", "#46d9ff"],
           ["#a9a1e1", "#a9a1e1"]]
 
+colors = []
+cache='/home/jasper/.cache/wal/colors' 
+def load_colors(cache): 
+    with open(cache, 'r') as file:         
+        for i in range(8):             
+            colors.append(file.readline().strip())     
+    colors.append('#ffffff')     
+    lazy.reload() 
+load_colors(cache) 
+
+
+
 widget_defaults = dict(
     font="TerminusTTF Nerd Font",
     fontsize=12,
@@ -201,49 +205,65 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
+
+screens = [     
+    Screen() 
+]
+
+
+
+
 #screens = [
 #    Screen(
 #     wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
 #        wallpaper_mode='fill',
 #        ), 
-screens = [   
-   Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(
-                    fmt=' {} ', 
-                    background=colors[1], 
-                    this_current_screen_border=colors[0], 
-                    this_screen_border=colors[0], 
-                    inactive=colors[0]
-                    ),
-                Spotify(), 
-                widget.WindowName(format=' {state}{name} '),
+#screens = [   
+#   Screen(
+#        top=bar.Bar(
+#            [
+#                widget.GroupBox(
+#                    fmt=' {} ', 
+#                    background=colors[1], 
+#                    this_current_screen_border=colors[0], 
+#                    this_screen_border=colors[0], 
+#                    inactive=colors[0]
+#                    ),
+#                Spotify(), 
+#                widget.WindowName(format=' {state}{name} '),
                 #widget.Bluetooth(hci='/dev_41_42_30_00_18_CD', fmt=' Bluetooth: {} ', background=colors[6]),
                 #widget.KeyboardLayout(fmt=' Keyboard: {} ', background=colors[1], configured_keyboards=['us', 'es']),
 				#widget.Battery(charge_char='+', discharge_char='-', full_char='', show_short_text=False, format=' Power: {char}{percent:2.0%} ', background=colors[6], notify_below=10),
-				widget.Volume(background=colors[1], fmt=' Volume: {} '),
-                widget.CPU( format=' CPU: {freq_current}GHz {load_percent}% '),
-                widget.Memory(background=colors[1], fmt=' RAM: {} '),
+#				widget.Volume(background=colors[1], fmt=' Volume: {} '),
+#                widget.CPU( format=' CPU: {freq_current}GHz {load_percent}% '),
+#                widget.Memory(background=colors[1], fmt=' RAM: {} '),
                 #widget.Wlan(interface='wlan0', background=colors[6], disconnected_message=' Disconnected ', format=' Network: {essid} '),
-                widget.Clock(format=' %A, %B %d %I:%M %p ', background=colors[1]),
-            ],
-            20,
-			background=colors[0],
-        ),    
+#                widget.Clock(format=' %A, %B %d %I:%M %p ', background=colors[1]),
+#            ],
+#            20,
+#			background=colors[0],
+#        ),    
      
-        wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
-        wallpaper_mode='fill',
+#        wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
+#        wallpaper_mode='fill',
       
 
-        ),
-    ]
+#        ),
+#    ]
+
+
+
+
+
+
+
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
-#auto_minimize = False
+auto_minimize = False
 
 # When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
+wl_input_rules = False
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
