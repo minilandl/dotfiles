@@ -46,7 +46,7 @@ from qtile_extras.widget.decorations import BorderDecoration
 @hook.subscribe.startup_once
 def autostart():
     dunst = os.path.expanduser('~/.bin/autostart.sh')
-    subprocess.call([dunst])
+
 
 
 mod = "mod4"#Super
@@ -98,7 +98,7 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), lazy.spawn("~/.config/polybar/launch.sh")),
+    Key([mod, "control"], "r", lazy.reload_config(), lazy.spawn("/home/jasper/.config/polybar/launch.sh")),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod1], "u", lazy.spawn('amixer sset Master 5%+ unmute')),
@@ -201,16 +201,20 @@ load_colors(cache)
 widget_defaults = dict(
     font="TerminusTTF Nerd Font",
     fontsize=12,
-    padding=15,
+    #padding=15,
 )
 extension_defaults = widget_defaults.copy()
 
 
 
 screens = [     
-    Screen() 
-]
+    Screen( 
 
+wallpaper='~/Pictures/wallpapers/wallpaper.jpg',
+wallpaper_mode='fill',
+      
+           ),
+]
 
 
 
@@ -263,7 +267,7 @@ screens = [
 auto_minimize = False
 
 # When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = False
+#wl_input_rules = False
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -273,4 +277,4 @@ wl_input_rules = False
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+#wmname = "LG3D"
