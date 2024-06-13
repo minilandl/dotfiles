@@ -7,6 +7,8 @@ SAVEHIST=1000
 
 export PATH="${PATH}:${HOME}/jasper/.bin/"
 
+export PATH="${PATH}:${HOME}/jasper/.local/bin/"
+
 source /usr/share/zsh/plugins/zsh-bd/bd.plugin.zsh
 source /usr/share/zsh/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
@@ -37,3 +39,4 @@ bindkey '^L' vi-end-of-line
 bindkey '^x' vi-delete-char
 
 # End of lines added by compinstall
+export PATH="$PATH:/home/username/.local/bin"

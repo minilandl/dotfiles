@@ -3,6 +3,9 @@
 
 firefox &
 
+
+snapclient &
+
 #Start LibreOffice
 
 #soffice &

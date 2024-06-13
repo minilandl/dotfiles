@@ -2,4 +2,4 @@
 killall picom
 cp  $HOME/.config/picom/picomtrans.conf $HOME/.config/picom/picom.conf
 picom 
-echo transparency enabled 
+notify-send transparency enabled 

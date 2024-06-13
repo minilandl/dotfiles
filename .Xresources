@@ -1,5 +1,9 @@
 
-#include ".colors/purepink"
+
+
+
+!-*- Perl extensions -*-
+#include ".colors/deepblue"
 
 ! URxvt
 Rxvt*loginShell: true
@@ -11,6 +15,9 @@ URxvt.font xfnt:"deja vu sans mono :size=10"
 URxvt.scrollBar: false
 URxvt.clipboard.autocopy: true
 URxvt.perl-ext-common:  ...,clipboard,...
+URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select
+URxvt.keysym.Control-Shift-V:     perl:pasta:paste
+URxvt.clipboard.autocopy: true
 
 ! Colors  
 *background:   bg  

@@ -2,5 +2,5 @@
 killall picom
 cp  $HOME/picomnotrans.conf $HOME/.config/picom/picom.conf
 picom --experimaental-backends
-echo transparency disabled
+notify-send  transparency disabled
 

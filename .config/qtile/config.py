@@ -29,6 +29,7 @@ import os
 import re
 import socket
 import subprocess
+from pathlib import Path
 from libqtile import qtile
 from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen 
 from libqtile.command import lazy
@@ -45,7 +46,8 @@ from qtile_extras.widget.decorations import BorderDecoration
 
 @hook.subscribe.startup_once
 def autostart():
-    dunst = os.path.expanduser('~/.bin/autostart.sh')
+    home = Path('/home/jasper/.bin/autostart.sh').expanduser()
+    subprocess.run(home)
 
 
 
@@ -79,11 +81,15 @@ keys = [
     Key([mod], 'space', lazy.spawn('rofi -show drun -theme purple ')),
     Key([mod], 'w', lazy.spawn('rofi -show window -theme purple ')),
     Key([mod], 'e', lazy.spawn('rofi -show emoji -theme purple ')),
-    Key([mod1], 'n', lazy.spawn('playerctl -p spotify next')),
-    Key([mod1], 'b', lazy.spawn('playerctl -p spotify previous')),
-    Key([mod1], 'p', lazy.spawn('playerctl -p spotify play-pause')),
+    #Key([mod1], 'n', lazy.spawn('mpc --host= next')),
+    Key([mod1], 'n', lazy.spawn('mpc --host 192.168.1.28 --port 6600 next')),
+    #Key([mod1], 'b', lazy.spawn('playerctl -p spotify previous')),
+    Key([mod1], 'b', lazy.spawn('mpc --host 192.168.1.28 --port 6600 prev')),
+    Key([mod, "mod1"], 'h', lazy.spawn('systemctl hibernate')),
+    #Key([mod1], 'p', lazy.spawn('playerctl -a play-pause')),
+    Key([mod1], 'p', lazy.spawn('mpc --host 192.168.1.28 --port 6600 toggle')),
     Key([mod], 'f', lazy.window.toggle_fullscreen()),
-    Key([mod1], '3', lazy.spawn('scrot -t 1 -s -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png')),
+    Key([mod1], '3', lazy.spawn('scrot -t 1 -f -s -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png')),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -123,9 +129,6 @@ groups = [Group("1", layout='monadthreecol'),
           Group("9", layout='monadthreecol'),
           Group("0", layout='monadthreecol')]
 
-
-
-
 for i in groups:
     keys.extend(
         [
@@ -149,8 +152,8 @@ for i in groups:
     )
 
 
-layout_theme = {"border_width": 5,
-                "margin": 8,
+layout_theme = {"border_width": 3,
+                "margin": 15,
                 "border_focus": "0D8CA8",
                 "border_normal": "bbcfd8",
                 }
