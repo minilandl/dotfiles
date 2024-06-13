@@ -21,12 +21,13 @@ The default configuration file is `$XDG_CONFIG_HOME/qtile/qtile.py
 
 What this config looks like.
 
-![image](https://user-images.githubusercontent.com/47686364/111281218-aa38a000-8677-11eb-85da-d94431521fb2.png)
+![image](https://github.com/minilandl/dotfiles/assets/47686364/948cb705-49db-4217-bb24-8338a997b646)
 
 
-![image](https://user-images.githubusercontent.com/47686364/111281445-e79d2d80-8677-11eb-81ef-271486b53432.png)
+![image](https://github.com/minilandl/dotfiles/assets/47686364/ea93cc6d-a858-49a9-a95a-3c258e6cc9e1)
 
 
+![image](https://github.com/minilandl/dotfiles/assets/47686364/396f0232-dd4d-4926-8b47-7f2061a867ff)
 
-![image](https://user-images.githubusercontent.com/47686364/111281492-f1bf2c00-8677-11eb-9914-4f4ad169db4b.png)
+
 
