@@ -18,6 +18,7 @@
 <h2> My Window Managers configs</h1>
 <ul>
   <li><a href="https://github.com/minilandl/dotfiles/blob/master/.config/bspwm/README.md">BSPWM</a></li>
+  <li><a href="https://github.com/minilandl/dotfiles/blob/master/.config/qtile/README.md">QTILE</a></li>
 </ul> 
 
 <h2>How I manage my dotfiles</h2>
