@@ -21,6 +21,10 @@ super + alt +  s
 super + alt + f
 	firefox
 
+
+alt + l
+	xmodmap ~/.Xmodmap
+
 # teams
 super + alt +  t 
 	teams -no-sandbox
