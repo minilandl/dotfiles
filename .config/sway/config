@@ -161,7 +161,17 @@ scratchpad_minimize disable
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
+
+    #Launch Keys 
+
+
+    bindsym $mod+$mod1+f exec firefox
+    bindsym $mod+$mod1+s exec steam-runtime
+    bindsym $mod+$mod1+d exec discord
+    bindsym $mod+$mod1+m exec foot -e ncmpcpp
+
+    bindsym $mod1+u exec amixer -q set Master 5% +
+    bindsym $mod1+d exec amixer -q set Master 5% -
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -175,11 +185,13 @@ scratchpad_minimize disable
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
+    bindsym $mod+tab layout toggle all
+
     # Make the current focus fullscreen
-    #bindsym $mod+f fullscreen
+    bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod1+t floating toggle
 
     # Swap focus between the tiling area and the floating area
     #bindsym $mod+space focus mode_toggle
