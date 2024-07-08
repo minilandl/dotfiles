@@ -23,15 +23,16 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu wofi --show drun
-
+set $primary eDP-1
+set $secondary DP-1
 ### Appearance
 # window corner radius in px
-corner_radius 10
+corner_radius 20
 
 # Window background blur
 blur on
@@ -60,7 +61,17 @@ scratchpad_minimize disable
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
+
+workspace 1 output $primary
+workspace 2 output $primary
+workspace 3 output $primary
+workspace 4 output $primary
+workspace 5 output $primary
+workspace 6 output $secondary
+workspace 7 output $secondary
+workspace 8 output $secondary
+workspace 9 output $secondary
+workspace 10 output $secondary
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -98,7 +109,7 @@ scratchpad_minimize disable
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod++c kill
+    bindsym $mod+c kill
 
     # Start your launcher
     bindsym $mod+space exec $menu
@@ -170,8 +181,12 @@ scratchpad_minimize disable
     bindsym $mod+$mod1+d exec discord
     bindsym $mod+$mod1+m exec foot -e ncmpcpp
 
-    bindsym $mod1+u exec amixer -q set Master 5% +
-    bindsym $mod1+d exec amixer -q set Master 5% -
+    bindsym $mod1+u exec amixer -q set Master 5%+
+    bindsym $mod1+d exec amixer -q set Master 5%-
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -223,11 +238,6 @@ mode "resize" {
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
 
     # Return to default mode
     bindsym Return mode "default"
