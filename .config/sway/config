@@ -7,7 +7,7 @@
 
 ##Header
 gaps inner 16px
-default_border pixel 3px
+default_border pixel 6px
 
 font Rubik Regular 12 
 
@@ -30,28 +30,17 @@ set $term alacritty
 set $menu wofi --show drun
 set $primary eDP-1
 set $secondary DP-1
+#set $secondary HDNI-A-2
 ### Appearance
 # window corner radius in px
-corner_radius 20
+corner_radius 14
 
-# Window background blur
-blur on
-blur_xray off
-blur_passes 2
-blur_radius 5
+#eye candy 
+blur enable 
+blur_radius 10 
+corner_radius 5 
+default_dim_inactive 0.3
 
-shadows off
-shadows_on_csd off
-shadow_blur_radius 20
-shadow_color #0000007F
-
-# inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
-default_dim_inactive 0.0
-dim_inactive_colors.unfocused #000000FF
-dim_inactive_colors.urgent #900000FF
-
-# Move minimized windows into Scratchpad (enable|disable)
-scratchpad_minimize disable
 
 ### Output configuration
 #
@@ -185,8 +174,12 @@ workspace 10 output $secondary
     bindsym $mod1+d exec amixer -q set Master 5%-
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym mod1+3 exec grim -g "$(slurp -d)"
 
 
+
+
+exec wl-paste -t text --watch clipman store --no-persist
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -228,16 +221,18 @@ workspace 10 output $secondary
 #
 # Resizing containers:
 #
+
+bindsym $mod+r mode "resize"
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
+    bindsym control+$left resize shrink width 10px
+    bindsym control+$down resize grow height 10px
+    bindsym control+$up resize shrink height 10px
+    bindsym control+$right resize grow width 10px
 
     # Return to default mode
     bindsym Return mode "default"
