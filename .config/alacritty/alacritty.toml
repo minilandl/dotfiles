@@ -1,0 +1,19 @@
+# $HOME/.config/alacritty/alacritty.toml
+# by Rito Ghosh 2023-10-06 
+
+[window] 
+
+opacity = 0.9
+
+padding.x = 10 
+padding.y = 10 
+
+decorations = "Full" 
+
+[font] 
+#normal.family = "Cascadia Code PL" 
+#bold.family = "Cascadia Code PL" 
+#italic.family = "Cascadia Code PL" 
+#bold_italic.family = "Cascadia Code PL" 
+
+size = 12.0
