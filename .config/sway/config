@@ -49,7 +49,6 @@ blur_passes 2
 blur_radius 10 
 corner_radius 2 
 blur ignore transparent enable
-layer_effects "waybar" blur enable; shadows enable; corner_radius 6 
 shadows enable
 
 
