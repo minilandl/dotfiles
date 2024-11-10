@@ -29,6 +29,11 @@ compinit
 
 
 
+plugins=(      
+	# other plugins...     
+	zsh-autosuggestions )
+
+
 bindkey '^A' vi-beginning-of-line
 
 bindkey '^L' vi-end-of-line
