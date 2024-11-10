@@ -9,9 +9,6 @@ export PATH="${PATH}:${HOME}/jasper/.bin/"
 
 export PATH="${PATH}:${HOME}/jasper/.local/bin/"
 
-source /usr/share/zsh/plugins/zsh-bd/bd.plugin.zsh
-source /usr/share/zsh/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
 source ~/.bin/shortcuts/commands
 source $HOME/.config/vifm
 
