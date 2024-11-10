@@ -32,17 +32,14 @@ import subprocess
 from pathlib import Path
 from libqtile import qtile
 from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen 
-from libqtile.command import lazy
+#from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from typing import List  # noqa: F401
+from typing import List  
 from spotify import Spotify
 from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
-
-
-
 
 @hook.subscribe.startup_once
 def autostart():
@@ -50,11 +47,9 @@ def autostart():
     subprocess.run(home)
 
 
-
 mod = "mod4"#Super
 mod1 = "mod1"#Alt
-
-terminal = guess_terminal()
+terminal = "urxvt"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -77,35 +72,25 @@ keys = [
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "c", lazy.layout.normalize(), desc="Reset all window sizes"),
+
     Key([mod], 'space', lazy.spawn('rofi -show drun -theme purple ')),
     Key([mod], 'w', lazy.spawn('rofi -show window -theme purple ')),
     Key([mod], 'e', lazy.spawn('rofi -show emoji -theme purple ')),
-    #Key([mod1], 'n', lazy.spawn('mpc --host= next')),
     Key([mod1], 'n', lazy.spawn('mpc --host 192.168.1.28 --port 6600 next')),
-    #Key([mod1], 'b', lazy.spawn('playerctl -p spotify previous')),
     Key([mod1], 'b', lazy.spawn('mpc --host 192.168.1.28 --port 6600 prev')),
     Key([mod, "mod1"], 'h', lazy.spawn('systemctl hibernate')),
-    #Key([mod1], 'p', lazy.spawn('playerctl -a play-pause')),
     Key([mod1], 'p', lazy.spawn('mpc --host 192.168.1.28 --port 6600 toggle')),
     Key([mod], 'f', lazy.window.toggle_fullscreen()),
     Key([mod1], '3', lazy.spawn('scrot -t 1 -f -s -z /home/jasper/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png')),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), lazy.spawn("/home/jasper/.config/polybar/launch.sh")),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "mod1"], "r", lazy.reload_config(), lazy.spawn("/home/jasper/.config/polybar/launch.sh")),
+    Key([mod, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod1], "u", lazy.spawn('amixer sset Master 5%+ unmute')),
     Key([mod1], "d", lazy.spawn('amixer sset Master 5%- unmute')),
@@ -113,7 +98,7 @@ keys = [
     Key([mod, "mod1"], 's', lazy.spawn('steam')),
     Key([mod], 't', lazy.spawn('/home/jasper/.bin/transon')),
     Key([mod, "mod1"], 't', lazy.spawn('/home/jasper/.bin/transoff')),
-    ]
+       ]
 
 groups = [Group(i) for i in "1234567890"]
 
@@ -188,17 +173,6 @@ colors = [["#282c34", "#282c34"],
           ["#c678dd", "#c678dd"],
           ["#46d9ff", "#46d9ff"],
           ["#a9a1e1", "#a9a1e1"]]
-
-colors = []
-cache='/home/jasper/.cache/wal/colors' 
-def load_colors(cache): 
-    with open(cache, 'r') as file:         
-        for i in range(8):             
-            colors.append(file.readline().strip())     
-    colors.append('#ffffff')     
-    lazy.reload() 
-load_colors(cache) 
-
 
 
 widget_defaults = dict(
