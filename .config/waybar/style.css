@@ -42,13 +42,17 @@ window#waybar.hidden {
 }
 
 #clock {
-    background-color: #64727D;
+   background: #955c9e;
+	 color: #e7e1e8;
+	 border-radius: 10px;
+ 
 }
-
 #battery {
-    background-color: #ffffff;
-    color: #000000;
-}
+background: #955c9e;
+	 color: #e7e1e8;
+	 border-radius: 10px;
+ } 
+
 
 #battery.charging {
     color: #ffffff;
@@ -73,30 +77,47 @@ window#waybar.hidden {
 }
 
 #cpu {
-    background: #955c9e;
+    background: #d69cf9;
 	 color: #e7e1e8;
 	 border-radius: 10px;
+ 
  }
 
 #memory {
-    background: #9b59b6;
+
+    background: #538de7;
+	 color: #e7e1e8;
+	 border-radius: 10px;
+ 
+
+
 }
 
 #backlight {
-    background: #90b1b1;
+
+    background: #955c9e;
+	 color: #e7e1e8;
+	 border-radius: 10px;
+ 
 }
 
 #network {
-    background: #2980b9;
-}
+    background: #955c9e;
+	 color: #e7e1e8;
+	 border-radius: 10px;
+ border-bottom: 3px solid white;  
+ }
 
 #network.disconnected {
     background: #f53c3c;
 }
 
 #pulseaudio {
-    background: #f1c40f;
-    color: #000000;
+    padding: 7;
+    background: #0a74e7;
+	 color: #e7e1e8;
+	 border-radius: 10px;
+ 
 }
 
 #pulseaudio.muted {
@@ -126,7 +147,10 @@ window#waybar.hidden {
 }
 
 #tray {
-    background-color: #2980b9;
+
+
+
+
 }
 
 #idle_inhibitor {

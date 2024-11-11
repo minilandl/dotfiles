@@ -2,14 +2,13 @@
 {
     // "layer": "bottom", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 25, // Waybar height (to be removed for auto height)
+    "height": 20, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
-        "sway/scratchpad",
         "custom/media"
     ],
     "modules-center": [
@@ -17,16 +16,13 @@
     ],
     "modules-right": [
         "mpd",
-        "idle_inhibitor",
         "pulseaudio",
         "network",
-        "power-profiles-daemon",
+        "custom/vpn",
+	"power-profiles-daemon",
         "cpu",
         "memory",
-        "temperature",
         "backlight",
-        "keyboard-state",
-        "sway/language",
         "battery",
         "battery#bat2",
         "clock",
@@ -168,13 +164,23 @@
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+       "custom/vpn": {
+       "interval": 3,
+       "format": "{}",
+       "exec": "ip add show | grep -qF tun0 && echo 🔒 Connected || echo 🔓 Disconnected",
+       "max-length": "100",
+       //"on-click": "nmcli connection up insertovpnfilenamewithoutextension",
+       //"on-click-right": "nmcli connection down "
+    },
+    
+    
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "  {volume}% ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
