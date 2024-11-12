@@ -29,7 +29,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu wofi --show drun
 set $primary eDP-1
-set $secondary HDMI-A-2
+set $secondary eDP-1
 set $wall $HOME/Pictrues/wallpapers/wallpaper.jpg
 set $activecolor #ff99ff
 set $inactivecolor #66d9ff 

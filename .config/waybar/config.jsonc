@@ -22,7 +22,6 @@
 	"power-profiles-daemon",
         "cpu",
         "memory",
-        "backlight",
         "battery",
         "battery#bat2",
         "clock",
@@ -32,18 +31,20 @@
      "sway/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
-         "warp-on-scroll": false,
-         "format": "{name}",
+         "format": "{icon}",
          "format-icons": {
              "1": "",
              "2": "",
              "3": "",
              "4": "",
-             "5": "",
+             "5": "󰓓",
              "urgent": "",
              "focused": "",
              "default": ""
          }
+   
+   
+   
      },
     "keyboard-state": {
         "numlock": true,
@@ -102,21 +103,23 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+         "timezone": "Australia/Perth",
+        "tooltip-format": "<big>{:%I %M}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%I:%M:%p  󰭧  %A %H %B}"
     },
+    
+    
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% 󰑉"
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
+        //"critical-threshold": 80",
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
@@ -124,7 +127,16 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": [ "󱩎", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖"]
+    }, 
+    "backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
+    
+    
+    
     },
     "battery": {
         "states": {
@@ -134,12 +146,12 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -157,23 +169,22 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-wifi": "{essid} ({signalStrength}%) 󱛌",
+        "format-ethernet": "{ipaddr}/{cidr} 󰌗",
+        "tooltip-format": "{ifname} via {gwaddr} 󰌗",
+        "format-linked": "{ifname} (No IP) 󰌗",
+        "format-disconnected": "Disconnected 󱞐",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
        "custom/vpn": {
        "interval": 3,
        "format": "{}",
-       "exec": "ip add show | grep -qF tun0 && echo 🔒 Connected || echo 🔓 Disconnected",
-       "max-length": "100",
-       //"on-click": "nmcli connection up insertovpnfilenamewithoutextension",
-       //"on-click-right": "nmcli connection down "
+       "exec": "ip add show | grep -qF tun0 && echo  connected 󰍁  || echo 󰍀 Disconnected",
+       "max-length": "10",
+       "on-click": "nmcli connection up pfsense-UDP4-1194-jasperg-config",
+       "on-click-right": "nmcli connection down pfsense-UDP4-1194-jasperg-config"
     },
-    
-    
+
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",

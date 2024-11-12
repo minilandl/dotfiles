@@ -42,22 +42,26 @@ window#waybar.hidden {
 }
 
 #clock {
-   background: #955c9e;
-	 color: #e7e1e8;
+ background: #d69cf9;
+	 color: #0b0f12;
 	 border-radius: 10px;
- 
+
+
 }
 #battery {
-background: #955c9e;
-	 color: #e7e1e8;
+background: #d69cf9;
+	 color: #0b0f12;
 	 border-radius: 10px;
+
  } 
 
 
 #battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
-}
+background: #d69cf9;
+	 color: #0b0f12;
+	 border-radius: 10px;
+ }
+
 
 @keyframes blink {
     to {
@@ -77,8 +81,8 @@ background: #955c9e;
 }
 
 #cpu {
-    background: #d69cf9;
-	 color: #e7e1e8;
+  	background: #d69cf9;
+	 color: #0b0f12;
 	 border-radius: 10px;
  
  }
@@ -86,26 +90,33 @@ background: #955c9e;
 #memory {
 
     background: #538de7;
-	 color: #e7e1e8;
+	 color: #0b0f12;
 	 border-radius: 10px;
- 
+ }
 
-
-}
-
-#backlight {
-
-    background: #955c9e;
-	 color: #e7e1e8;
+#custom-vpn {
+    background: #d69cf9;
+	 color: #0b0f12;
 	 border-radius: 10px;
- 
+ 	 padding-left: 5px;
+         padding-right: 5px; 
+	 
+ }
+
+ #backlight {
+
+         background: #d69cf9;
+	 color: #0b0f12;
+	 border-radius: 10px;
+	 padding-left: 6px;
+         padding-right: 6px; 
+	 transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 #network {
-    background: #955c9e;
-	 color: #e7e1e8;
+         background: #d69cf9;
+	 color: #0b0f12;
 	 border-radius: 10px;
- border-bottom: 3px solid white;  
  }
 
 #network.disconnected {
@@ -113,11 +124,10 @@ background: #955c9e;
 }
 
 #pulseaudio {
-    padding: 7;
-    background: #0a74e7;
-	 color: #e7e1e8;
+   	 padding: 7;
+ 	 background: #d69cf9;
+	 color: #0b0f12;
 	 border-radius: 10px;
- 
 }
 
 #pulseaudio.muted {
