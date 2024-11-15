@@ -1,7 +1,8 @@
 // -*- mode: jsonc -*-
-{
-    // "layer": "bottom", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+{ 
+     "name" : "top",	
+     "layer": "top", // Waybar at top layer
+     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 20, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
@@ -15,11 +16,9 @@
         "#sway/window"
     ],
     "modules-right": [
-        "mpd",
         "pulseaudio",
         "network",
         "custom/vpn",
-	"power-profiles-daemon",
         "cpu",
         "memory",
         "battery",
@@ -192,16 +191,8 @@
         "format-disconnected": "Disconnected 󱞐",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-       "custom/vpn": {
-       "interval": 3,
-       "format": "{}",
-       "exec": "ip add show | grep -qF tun0 && echo  connected 󰍁  || echo 󰍀 Disconnected",
-       "max-length": "10",
-       "on-click": "nmcli connection up pfsense-UDP4-1194-jasperg-config",
-       "on-click-right": "nmcli connection down pfsense-UDP4-1194-jasperg-config"
-    },
 
-    "pulseaudio": {
+ "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
@@ -219,17 +210,27 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
         },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+ 
+
+       "custom/vpn": {
+       "interval": 3,
+       "format": "{}",
+       "exec": "ip add show | grep -qF tun0 && echo  connected 󰍁  || echo 󰍀 Disconnected",
+       "max-length": "10",
+       "on-click": "nmcli connection up pfsense-UDP4-1194-jasperg-config",
+       "on-click-right": "nmcli connection down pfsense-UDP4-1194-jasperg-config"
+    },
 }
+
+{
+    "height": 15,
+    "name": "bottom",
+    "layer": "top",
+    "margin": "0px 0px 0px 0px",
+    "position": "left",
+    "modules-right": ["network", "pulseaudio", "backlight", "battery", "custom/grimshot", "custom/wfrecord", "custom/vm", "custom/containers", "memory", "cpu", "disk", "temperature", "tray",  "idle_inhibitor"],
+ 
+    { 
+      }
+    }
