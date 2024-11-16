@@ -101,13 +101,36 @@ background: #d69cf9;
 
  }
 
+
+#group-power {
+background: #d69cf9;
+	 color: #0b0f12;
+	 border-radius: 5px;
+
+ }
+
+
+
+
+
+#mpd{
+background: #d69cf9;
+	 color: #0b0f12;
+	 border-radius: 30px;
+         padding-left: 5px;
+         padding-right: 5px; 
+         margin: 5px;
+ }
+
+
+
+
 #custom-vpn {
     background: #d69cf9;
 	 color: #0b0f12;
 	 border-radius: 10px;
  	 padding-left: 5px;
          padding-right: 5px; 
-	 
  }
 
  #backlight {
@@ -131,7 +154,6 @@ background: #d69cf9;
 }
 
 #pulseaudio {
-   	 padding: 7;
  	 background: #d69cf9;
 	 color: #0b0f12;
 	 border-radius: 10px;
