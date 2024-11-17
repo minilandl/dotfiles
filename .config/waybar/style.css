@@ -102,16 +102,34 @@ background: #d69cf9;
  }
 
 
+@keyframes blink-update {
+	to {
+	    background-color: dodgerblue;
+	}
+}
+
+#custom-pacman {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	color: #0b0f12;
+	border-radius: 5px;
+
+}
+#custom-pacman.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 3s;
+	background: #d69cf9;
+
+}
+
+
 #group-power {
 background: #d69cf9;
 	 color: #0b0f12;
 	 border-radius: 5px;
 
  }
-
-
-
-
 
 #mpd{
 background: #d69cf9;

@@ -11,20 +11,23 @@
     "modules-left": [
         
 	"group/group-power",
-	"sway/workspaces"
+	"sway/workspaces",
+	"mpd"
       
     ],
     "modules-center": [
     ],
     
     "modules-right": [
-        "pulseaudio",
+        "custom/pacman",
+	"pulseaudio",
         "network",
         "custom/vpn",
         "cpu",
         "memory",
         "battery",
-        "battery#bat2",
+        "custom/gpu-usage",
+	"battery#bat2",
         "clock",
         "tray"
     ],
@@ -132,7 +135,7 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+             "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -195,8 +198,26 @@
     "on-click": "shutdown now"
 },
     
-    
-    
+"custom/gpu-usage": {
+  "format": "{} {icon}",
+  "exec": "gpu-usage-waybar",
+  "return-type": "json",
+  "format-icons": "󰾲",
+  "on-click": "alacritty nvtop"
+},
+
+"custom/pacman": {
+  "format": "{icon}",
+  "return-type": "json",
+  "format-icons": {
+    "pending-updates": " Updates 󰮯 ",
+    "updated": ""
+  },
+  "exec-if": "which waybar-updates",
+  "exec": "waybar-updates "
+},
+
+
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) 󱛌",
@@ -253,8 +274,8 @@
     "modules-right": [
     ],
 "mpd": {
-        "format": " 󰃂 {stateIcon} {consumeIcon} 󰇝 {randomIcon} 󰇝 {repeatIcon}   {singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})  ",
-        "format-disconnected": "Disconnected ",
+        "format": " 󰋆 {stateIcon} {consumeIcon} 󰇝 󰎆 {singleIcon}- {album} 󰙽  {artist}  {title} ",
+        "format-disconnected": "󰓄 Disconnected",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
 	"unknown-tag": "N/A",
         "server": "jg-media",
