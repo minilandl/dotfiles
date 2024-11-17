@@ -22,9 +22,9 @@
 #
 ##### connection settings #####
 #
-mpd_host = 192.168.1.29
+mpd_host = 192.168.1.28
 #
-mpd_port = 7200
+mpd_port = 6600
 #
 mpd_connection_timeout = 5
 #
