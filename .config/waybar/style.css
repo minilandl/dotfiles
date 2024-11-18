@@ -36,6 +36,12 @@ window#waybar.hidden {
     background-color: #eb4d4b;
 }
 
+#weather{
+  background: #d69cf9;
+	 color: #0b0f12;
+	 border-radius: 10px;
+}
+
 #mode {
     background: #64727D;
     border-bottom: 3px solid #ffffff;
@@ -114,7 +120,7 @@ background: #d69cf9;
 	animation-direction: alternate;
 	color: #0b0f12;
 	border-radius: 5px;
-
+	background: #d69cf9;
 }
 #custom-pacman.pending-updates {
 	animation-name: blink-update;

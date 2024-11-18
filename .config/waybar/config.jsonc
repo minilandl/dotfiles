@@ -19,7 +19,8 @@
     ],
     
     "modules-right": [
-        "custom/pacman",
+	"custom/weather",
+	"custom/pacman",
 	"pulseaudio",
         "network",
         "custom/vpn",
@@ -211,7 +212,7 @@
   "return-type": "json",
   "format-icons": {
     "pending-updates": " Updates 󰮯 ",
-    "updated": ""
+    "updated": " Updated  " 
   },
   "exec-if": "which waybar-updates",
   "exec": "waybar-updates "
@@ -247,7 +248,14 @@
         },
         "on-click": "pavucontrol"
         },
- 
+
+"custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --location Fremantle",
+    "return-type": "json"
+},
 
        "custom/vpn": {
        "interval": 3,
@@ -278,7 +286,7 @@
         "format-disconnected": "󰓄 Disconnected",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
 	"unknown-tag": "N/A",
-        "server": "jg-media",
+        "server": "jg-media.localdomain",
         "port": "6600",
 	"interval": 5,
         "consume-icons": {
