@@ -36,6 +36,15 @@ window#waybar.hidden {
     background-color: #eb4d4b;
 }
 
+#weather{
+ background: #d69cf9;
+	 color: #0b0f12;
+	 border-radius: 10px;
+
+
+
+}
+
 #mode {
     background: #64727D;
     border-bottom: 3px solid #ffffff;
@@ -60,6 +69,14 @@ background: #d69cf9;
 	 border-radius: 10px;
 
  } 
+
+#custom-notification {
+  background: #d69cf9;
+  color: #0b0f12;
+  border-radius: 20px;
+}
+
+
 
 
 #battery.charging {
@@ -102,16 +119,34 @@ background: #d69cf9;
  }
 
 
+@keyframes blink-update {
+	to {
+	    background-color: dodgerblue;
+	}
+}
+
+#custom-pacman {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	color: #0b0f12;
+	border-radius: 5px;
+	background: #d69cf9;
+}
+#custom-pacman.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 3s;
+	background: #d69cf9;
+
+}
+
+
 #group-power {
 background: #d69cf9;
 	 color: #0b0f12;
 	 border-radius: 5px;
 
  }
-
-
-
-
 
 #mpd{
 background: #d69cf9;

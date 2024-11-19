@@ -1,4 +1,5 @@
 // -*- mode: jsonc -*-
+[
 { 
      "name" : "top",	
      "layer": "top", // Waybar at top layer
@@ -8,22 +9,28 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "custom/media"
+        
+	"group/group-power",
+	"sway/workspaces",
+	"mpd"
+      
     ],
     "modules-center": [
-        "#sway/window"
     ],
+    
     "modules-right": [
-        "pulseaudio",
+	"custom/weather",
+	"custom/pacman",
+	"pulseaudio",
         "network",
         "custom/vpn",
         "cpu",
         "memory",
         "battery",
-        "battery#bat2",
+        "custom/gpu-usage",
+	"battery#bat2",
         "clock",
+	"custom/notification",
         "tray"
     ],
     // Modules configuration
@@ -80,32 +87,7 @@
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
+   
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -155,7 +137,7 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+             "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -182,6 +164,62 @@
         "power-saver": ""
       }
     },
+    
+    "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": false
+   },
+    "modules": [
+        "custom/power", // First element is the "group leader" and won't ever be hidden
+        "custom/quit",
+        "custom/lock",
+        "custom/reboot"
+]
+},
+"custom/quit": {
+    "format": " 󰗼 ",
+    "tooltip": false,
+    "on-click": "wlogout"
+},
+"custom/lock": {
+    "format": " 󰍁 ",
+    "tooltip": false,
+    "on-click": "swaylock"
+},
+"custom/reboot": {
+    "format": " 󰜉 ",
+    "tooltip": false,
+    "on-click": "systemctl reboot"
+},
+"custom/power": {
+    "format": "  ",
+    "tooltip": false,
+    "on-click": "shutdown now"
+},
+    
+"custom/gpu-usage": {
+  "format": "{} {icon}",
+  "exec": "gpu-usage-waybar",
+  "return-type": "json",
+  "format-icons": "󰾲",
+  "on-click": "alacritty nvtop"
+},
+
+"custom/pacman": {
+  "format": "{icon}",
+  "return-type": "json",
+  "format-icons": {
+    "pending-updates": " Updates 󰮯 ",
+    "updated": " Updated  " 
+  },
+  "exec-if": "which waybar-updates",
+  "exec": "waybar-updates "
+},
+
+
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) 󱛌",
@@ -211,7 +249,38 @@
         },
         "on-click": "pavucontrol"
         },
- 
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "Notifications 󰵚 <span foreground='red'><sup></sup></span>",
+      "none": " Notifications 󰵚 ", 
+      "dnd-notification": "󰍷<span foreground='red'><sup></sup></span>",
+      "dnd-none": " Do Not Disturb 󰍷 ",
+      "inhibited-notification": " Notifcations 󰵚 <span foreground='red'><sup></sup></span>",
+      "inhibited-none": " Notifications 󰵚 ",
+      "dnd-inhibited-notification": "󰍷<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "Do Not Disturb 󰍷"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+
+
+
+"custom/weather": {
+    "format": " { }",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --location Fremantle",
+    "return-type": "json"
+},
 
        "custom/vpn": {
        "interval": 3,
@@ -220,17 +289,60 @@
        "max-length": "10",
        "on-click": "nmcli connection up pfsense-UDP4-1194-jasperg-config",
        "on-click-right": "nmcli connection down pfsense-UDP4-1194-jasperg-config"
-    },
+       }
+
+},
+{ 
+     "name" : "bottom",	
+     "layer": "top", // Waybar at top layer
+     "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 20, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 14, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "mpd"
+    ],
+
+    "modules-right": [
+    ],
+"mpd": {
+        "format": " 󰋆 {stateIcon} {consumeIcon} 󰇝 󰎆 {singleIcon}- {album} 󰙽  {artist}  {title} ",
+        "format-disconnected": "󰓄 Disconnected",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+	"unknown-tag": "N/A",
+        "server": "jg-media.localdomain",
+        "port": "6600",
+	"interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "󰏦",
+            "playing": "󰐍"
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected 󰀦 )"
+    }
+
+
+
+
+
+
 }
 
-{
-    "height": 15,
-    "name": "bottom",
-    "layer": "top",
-    "margin": "0px 0px 0px 0px",
-    "position": "left",
-    "modules-right": ["network", "pulseaudio", "backlight", "battery", "custom/grimshot", "custom/wfrecord", "custom/vm", "custom/containers", "memory", "cpu", "disk", "temperature", "tray",  "idle_inhibitor"],
- 
-    { 
-      }
-    }
+
+
+]
+
