@@ -27,7 +27,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show drun
+set $menu rofi -show drun -theme purple
 set $primary eDP-1
 set $secondary eDP-1
 set $wall $HOME/Pictrues/wallpapers/wallpaper.jpg
@@ -45,7 +45,7 @@ corner_radius 14
 
 #eye candy 
 blur enable
-blur_passes 2
+blur_passes 6
 blur_radius 10 
 corner_radius 2 
 blur ignore transparent enable
@@ -125,7 +125,8 @@ workspace 10 output $secondary
 
     # Start your launcher
     bindsym $mod+space exec $menu
-
+     
+    bindsym $mod+ exec $menu
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -193,7 +194,12 @@ workspace 10 output $secondary
     bindsym $mod+$mod1+d exec vesktop
     bindsym $mod+$mod1+m exec alacritty -e ncmpcpp
     bindsym $mod+$mod1+l exec soffice
-
+    bindsym $mod+$mod1+p exec alacritty -e pulsemixer
+    bindsym $mod+w exec rofi -show window -theme purple 
+    bindsym $mod1+n exec mpc --host=jg-media.localdomain --port=6600 next
+    bindsym $mod1+b exec mpc --host=jg-media.localdomain --port=6600 prev
+    bindsym $mod1+p exec mpc --host=jg-media.localdomain --port=6600 toggle
+    bindsym $mod1+c exec mpc --host=jg-media.localdomain --port=6600 clear
 
     bindsym $mod1+u exec amixer -q set Master 5%+
     bindsym $mod1+d exec amixer -q set Master 5%-
@@ -216,7 +222,7 @@ exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/cli
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    #bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
     bindsym $mod+tab layout toggle all

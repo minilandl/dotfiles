@@ -204,7 +204,7 @@
   "format": "{} {icon}",
   "exec": "gpu-usage-waybar",
   "return-type": "json",
-  "format-icons": "󰾲",
+  "format-icons": " 󰾲 ",
   "on-click": "alacritty nvtop"
 },
 
@@ -254,14 +254,14 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "Notifications 󰵚 <span foreground='red'><sup></sup></span>",
+      "notification": "Notifications 󰵚 <span foreground='red'><sup> </sup></span>",
       "none": " Notifications 󰵚 ", 
-      "dnd-notification": "󰍷<span foreground='red'><sup></sup></span>",
+      "dnd-notification": " Do Not Disturb 󰍷<span foreground='red'><sup> </sup></span>",
       "dnd-none": " Do Not Disturb 󰍷 ",
-      "inhibited-notification": " Notifcations 󰵚 <span foreground='red'><sup></sup></span>",
+      "inhibited-notification": " Notifcations 󰵚 <span foreground='red'><sup> </sup></span>",
       "inhibited-none": " Notifications 󰵚 ",
-      "dnd-inhibited-notification": "󰍷<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": "Do Not Disturb 󰍷"
+      "dnd-inhibited-notification": "Do Not Disturb 󰍷 <span foreground='red'><sup> </sup></span>",
+      "dnd-inhibited-none": "Do Not Disturb 󰍷 "
     },
     "return-type": "json",
     "exec-if": "which swaync-client",

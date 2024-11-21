@@ -267,7 +267,10 @@ alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+
+song_columns_list_format = "(4f)[magenta]{n} (6f)[blue]{l} (40)magenta[]{t} (10)[blue]{a} (15)[green]{b}"
+
+
 #
 ##### various settings #####
 #
@@ -275,7 +278,10 @@ alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-execute_on_song_change = notify-send "Now Playing" "$(mpc --host=jg-media.localdomain --port=6600 --format '%title% \n%artist% - %album%' current)"
+execute_on_song_change = notify-send "Now Playing" "$(mpc --host=jg-media.localdomain --port=6600 --format '%title% \n%artist% - %album%' current )"
+
+#execute_on_song_change = songinfo
+
 #
 ##
 ## Note: Custom command that will be executed each time player state
@@ -285,7 +291,7 @@ execute_on_song_change = notify-send "Now Playing" "$(mpc --host=jg-media.locald
 #
 #execute_on_player_state_change = ""
 #
-playlist_show_mpd_host = yes
+#playlist_show_mpd_host = no
 #
 #playlist_show_remaining_time = no
 #
@@ -296,13 +302,13 @@ playlist_show_mpd_host = yes
 ##
 ## Note: Possible display modes: classic, columns.
 ##
-#playlist_display_mode = columns
+playlist_display_mode = columns
 #
-#browser_display_mode = classic
+browser_display_mode = columns
 #
-#search_engine_display_mode = classic
+search_engine_display_mode = columns
 #
-#playlist_editor_display_mode = classic
+playlist_editor_display_mode = columns
 #
 #discard_colors_if_item_is_selected = yes
 #
@@ -420,13 +426,13 @@ user_interface = alternative
 #
 #ask_before_clearing_playlists = yes
 #
-#clock_display_seconds = no
+clock_display_seconds = no
 #
-#display_volume_level = yes
+display_volume_level = yes
 #
-#display_bitrate = no
+display_bitrate = yes
 #
-#display_remaining_time = no
+display_remaining_time = yes
 #
 ## Available values: none, basic, extended, perl.
 ##
@@ -525,8 +531,7 @@ user_interface = alternative
 #
 #state_flags_color = default:b
 #
-#main_window_color = yellow
-#
+main_window_color = magenta
 #color1 = white
 #
 #color2 = green
