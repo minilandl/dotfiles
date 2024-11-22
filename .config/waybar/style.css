@@ -45,6 +45,15 @@ window#waybar.hidden {
 
 }
 
+#custom-gpu-usage{
+ background: #d69cf9;
+	 color: #0b0f12;
+	 border-radius: 10px;
+
+
+
+}
+
 #mode {
     background: #64727D;
     border-bottom: 3px solid #ffffff;
@@ -73,10 +82,8 @@ background: #d69cf9;
 #custom-notification {
   background: #d69cf9;
   color: #0b0f12;
-  border-radius: 20px;
+  border-radius: 10px;
 }
-
-
 
 
 #battery.charging {

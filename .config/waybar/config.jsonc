@@ -187,7 +187,7 @@
 "custom/lock": {
     "format": " 󰍁 ",
     "tooltip": false,
-    "on-click": "swaylock"
+    "on-click": "~/.bin/swaylock"
 },
 "custom/reboot": {
     "format": " 󰜉 ",
