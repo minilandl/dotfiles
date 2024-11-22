@@ -30,6 +30,7 @@
         "custom/gpu-usage",
 	"battery#bat2",
         "clock",
+	"custom/notification",
         "tray"
     ],
     // Modules configuration
@@ -203,7 +204,7 @@
   "format": "{} {icon}",
   "exec": "gpu-usage-waybar",
   "return-type": "json",
-  "format-icons": "󰾲",
+  "format-icons": " 󰾲 ",
   "on-click": "alacritty nvtop"
 },
 
@@ -249,8 +250,32 @@
         "on-click": "pavucontrol"
         },
 
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "Notifications 󰵚 <span foreground='red'><sup> </sup></span>",
+      "none": " Notifications 󰵚 ", 
+      "dnd-notification": " Do Not Disturb 󰍷<span foreground='red'><sup> </sup></span>",
+      "dnd-none": " Do Not Disturb 󰍷 ",
+      "inhibited-notification": " Notifcations 󰵚 <span foreground='red'><sup> </sup></span>",
+      "inhibited-none": " Notifications 󰵚 ",
+      "dnd-inhibited-notification": "Do Not Disturb 󰍷 <span foreground='red'><sup> </sup></span>",
+      "dnd-inhibited-none": "Do Not Disturb 󰍷 "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+
+
+
 "custom/weather": {
-    "format": "{}",
+    "format": " { }",
     "tooltip": true,
     "interval": 3600,
     "exec": "wttrbar --location Fremantle",
@@ -308,7 +333,7 @@
         },
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected 󰀦 )"
-    },
+    }
 
 
 

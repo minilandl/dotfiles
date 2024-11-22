@@ -37,9 +37,12 @@ window#waybar.hidden {
 }
 
 #weather{
-  background: #d69cf9;
+ background: #d69cf9;
 	 color: #0b0f12;
 	 border-radius: 10px;
+
+
+
 }
 
 #mode {
@@ -66,6 +69,14 @@ background: #d69cf9;
 	 border-radius: 10px;
 
  } 
+
+#custom-notification {
+  background: #d69cf9;
+  color: #0b0f12;
+  border-radius: 20px;
+}
+
+
 
 
 #battery.charging {
