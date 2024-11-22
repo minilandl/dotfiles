@@ -187,7 +187,7 @@
 "custom/lock": {
     "format": " 󰍁 ",
     "tooltip": false,
-    "on-click": "swaylock"
+    "on-click": "swaylock -i ~/Pictures/wallpapers/wallpaper.jpg"
 },
 "custom/reboot": {
     "format": " 󰜉 ",

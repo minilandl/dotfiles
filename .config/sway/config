@@ -6,9 +6,9 @@
 
 
 ##Header
-gaps inner 5px
-default_border pixel 5px
-
+gaps inner 15
+default_border pixel 5
+smart_borders on
 font Rubik Regular 12 
 
 ### Variables
@@ -83,9 +83,9 @@ workspace 10 output $secondary
 
 #
  exec swayidle -w \
-          timeout 300 'swaylock -i ~/Pictures/wallpaperswallpaper.jpg -f --color 00000000' \
+          timeout 300 'swaylock -i ~/Pictures/wallpapers/wallpaper.jpg'  \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep 'swaylock -i ~/Pictures/wallpapers/wallpaper.jpg -f --color 00000000 '
+          before-sleep 'swaylock -i ~/Pictures/wallpapers/wallpaper.jpg'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
