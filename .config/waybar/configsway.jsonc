@@ -11,7 +11,7 @@
     "modules-left": [
         
 	"group/group-power",
-	"hyprland/workspaces",
+	"sway/workspaces",
 	"mpd"
       
     ],
@@ -34,7 +34,7 @@
         "tray"
     ],
     // Modules configuration
-     "hyprland/workspaces": {
+     "sway/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
          "format": "{icon}",
@@ -77,10 +77,10 @@
             "unlocked": ""
         }
     },
-    "hyprland/mode": {
+    "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "hyprland/scratchpad": {
+    "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
@@ -187,7 +187,7 @@
 "custom/lock": {
     "format": " 󰍁 ",
     "tooltip": false,
-    "on-click": "~/.bin/hyprlandlock"
+    "on-click": "~/.bin/swaylock"
 },
 "custom/reboot": {
     "format": " 󰜉 ",
@@ -264,7 +264,7 @@
       "dnd-inhibited-none": "Do Not Disturb 󰍷 "
     },
     "return-type": "json",
-    "exec-if": "which hyprlandnc-client",
+    "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",

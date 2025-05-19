@@ -29,7 +29,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu rofi -show drun -theme purple
 set $primary eDP-1
-set $secondary eDP-1
+set $secondary HDMI-A-1
 set $wall $HOME/Pictrues/wallpapers/wallpaper.jpg
 set $activecolor #ff99ff
 set $inactivecolor #66d9ff 
@@ -65,16 +65,19 @@ output * background /home/jasper/Pictures/wallpapers/wallpaper.jpg fill
 
 
 
-workspace 1 output $primary
-workspace 2 output $primary
-workspace 3 output $primary
-workspace 4 output $primary
-workspace 5 output $primary
-workspace 6 output $secondary
-workspace 7 output $secondary
-workspace 8 output $secondary
-workspace 9 output $secondary
-workspace 10 output $secondary
+workspace 1 output $secondary
+workspace 2 output $secondary
+workspace 3 output $secondary
+workspace 4 output $secondary
+workspace 5 output $secondary
+workspace 6 output $primary
+workspace 7 output $primary
+workspace 8 output $primary
+workspace 9 output $primary
+workspace 10 output $primary
+
+exec xrandr --output $secondary --primary
+
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -83,10 +86,10 @@ workspace 10 output $secondary
 
 #
  exec swayidle -w \
-          timeout 300 'swaylock -i ~/Pictures/wallpaperswallpaper.jpg -f --color 00000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep 'swaylock -i ~/Pictures/wallpapers/wallpaper.jpg -f --color 00000000 '
-#
+         timeout 300 '~/.bin/swaylock'  \
+	 for_window [class="libreoffice"] inhibit_idle fullscreen \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	 before-sleep '~/.bin/swaylock'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
