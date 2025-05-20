@@ -11,7 +11,7 @@
     "modules-left": [
         
 	"group/group-power",
-	"sway/workspaces",
+	"hyprland/workspaces",
 	"mpd"
       
     ],
@@ -34,7 +34,7 @@
         "tray"
     ],
     // Modules configuration
-     "sway/workspaces": {
+     "hyprland/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
          "format": "{icon}",
@@ -77,10 +77,10 @@
             "unlocked": ""
         }
     },
-    "sway/mode": {
+    "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "sway/scratchpad": {
+    "hyprland/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
@@ -102,7 +102,7 @@
     "clock": {
          "timezone": "Australia/Perth",
         "tooltip-format": "<big>{:%I %M}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%I:%M:%p  󰭧  %A %H %B}"
+        "format": "{:%I:%M:%p  󰭧  %A %e %B}"
     },
     
     
@@ -187,7 +187,7 @@
 "custom/lock": {
     "format": " 󰍁 ",
     "tooltip": false,
-    "on-click": "~/.bin/swaylock"
+    "on-click": "~/.bin/hyprlandlock"
 },
 "custom/reboot": {
     "format": " 󰜉 ",
@@ -264,7 +264,7 @@
       "dnd-inhibited-none": "Do Not Disturb 󰍷 "
     },
     "return-type": "json",
-    "exec-if": "which swaync-client",
+    "exec-if": "which hyprlandnc-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
