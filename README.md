@@ -27,8 +27,5 @@
 <h2>Licence</h2>
  <p>my dotfiles are licenced under MIT Licence feel free to read more here. Allows for people to share and use how they want :)</p>
  
-<h1> Diagram of My Homelab</h1>
-
-![Homelab Diagram Actuak (2)](https://github.com/minilandl/dotfiles/assets/47686364/b83010e3-22ee-4040-b7e8-1993a3d1c68a)
 
 
